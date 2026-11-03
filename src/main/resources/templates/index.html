@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${pageTitle}">
+        TIVAREK
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container navbar">
+
+        <a th:href="@{/}" class="logo">
+            TIVAREK<span>.</span>
+        </a>
+
+        <nav>
+            <a href="#home">Trang chủ</a>
+            <a href="#products">Sản phẩm</a>
+            <a href="#services">Dịch vụ</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero" id="home">
+        <div class="container">
+
+            <span class="eyebrow">
+                TIVAREK ELECTRONICS & REPAIR
+            </span>
+
+            <h1>
+                Công nghệ chất lượng.
+                <br>
+                <span>Dịch vụ tận tâm.</span>
+            </h1>
+
+            <p>
+                TIVAREK cung cấp thiết bị điện tử,
+                máy tính, phụ kiện và dịch vụ
+                sửa chữa tại Quảng Ngãi.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#products"
+                   class="btn btn-primary">
+                    Khám phá sản phẩm
+                </a>
+
+                <a href="#services"
+                   class="btn btn-outline">
+                    Dịch vụ sửa chữa
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+
+            <div class="section-heading">
+                <span class="eyebrow">
+                    DỊCH VỤ TIVAREK
+                </span>
+
+                <h2>Chúng tôi có thể giúp gì cho bạn?</h2>
+            </div>
+
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-icon">📺</div>
+                    <h3>Thiết bị điện tử</h3>
+                    <p>
+                        Tivi, đầu đĩa và các thiết bị
+                        điện tử phù hợp nhu cầu gia đình.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Máy tính và phụ kiện</h3>
+                    <p>
+                        Laptop, máy tính để bàn,
+                        linh kiện và phụ kiện đã qua sử dụng.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Sửa chữa thiết bị</h3>
+                    <p>
+                        Tiếp nhận, kiểm tra và tư vấn
+                        phương án sửa chữa phù hợp.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section products-section"
+             id="products">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">
+                    TIVAREK STORE
+                </span>
+
+                <h2>Sản phẩm mới cập nhật</h2>
+
+                <p>
+                    Các sản phẩm hiện có tại cửa hàng.
+                </p>
+
+            </div>
+
+            <div class="empty-state"
+                 th:if="${#lists.isEmpty(products)}">
+
+                <h3>Đang cập nhật sản phẩm</h3>
+
+                <p>
+                    Danh sách sản phẩm sẽ được
+                    hiển thị tại đây.
+                </p>
+
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card"
+                     th:each="product : ${products}">
+
+                    <div class="product-image">
+                        <span>Thiết bị điện tử</span>
+                    </div>
+
+                    <div class="product-info">
+
+                        <span class="product-label">
+                            TIVAREK
+                        </span>
+
+                        <h3 th:text="${product.name()}">
+                            Tên sản phẩm
+                        </h3>
+
+                        <p class="price"
+                           th:text="${#numbers.formatDecimal(product.price(), 1, 'POINT', 0, 'COMMA')} + ' đ'">
+                            0 đ
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <h2>
+                Cần tư vấn thiết bị hoặc sửa chữa?
+            </h2>
+
+            <p>
+                TIVAREK luôn sẵn sàng hỗ trợ
+                khách hàng tại Quảng Ngãi.
+            </p>
+
+            <span class="contact-note">
+                Thông tin liên hệ chính thức
+                sẽ được cập nhật.
+            </span>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+
+        <p>
+            © 2026 TIVAREK.
+            Electronics & Repair.
+        </p>
+
+        <p>Quảng Ngãi, Việt Nam</p>
+
+    </div>
+</footer>
+
+</body>
+</html>
