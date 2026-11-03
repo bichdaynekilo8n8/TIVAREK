@@ -3,88 +3,228 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TIVAREK - Điện tử và sửa chữa tại Quảng Ngãi">
+    <title>TIVAREK | Thiết bị tốt, tư vấn thật lòng</title>
 
-    <title>TIVAREK - Điện tử & Sửa chữa</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <script src="JS/main.js" defer></script>
 </head>
-
 <body>
 
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">TIVAREK</a>
+<a class="skip-link" href="#main">Đi đến nội dung chính</a>
 
-            <nav aria-label="Điều hướng chính">
-                <a href="index.html">Trang chủ</a>
-                <a href="products.html">Sản phẩm</a>
-                <a href="repair.html">Sửa chữa</a>
-            </nav>
-        </div>
-    </header>
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span>📍 Quảng Ngãi, Việt Nam</span>
+        <span>Website demo — Chưa nhận đơn trực tuyến</span>
+    </div>
+</div>
 
-    <main>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark">T</span>
+            <span>
+                <strong>TIVAREK</strong>
+                <small>ĐIỆN TỬ & SỬA CHỮA</small>
+            </span>
+        </a>
 
-        <section class="hero">
-            <div class="container">
-                <h1>TIVAREK - Điện tử & Sửa chữa</h1>
+        <button class="menu-toggle" type="button"
+                aria-label="Mở menu"
+                aria-controls="main-nav"
+                aria-expanded="false">☰</button>
+
+        <nav class="main-nav" id="main-nav"
+             aria-label="Điều hướng chính">
+            <a href="index.html" aria-current="page">Trang chủ</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="repair.html">Đăng ký sửa chữa</a>
+            <a href="#cam-ket">Cam kết</a>
+        </nav>
+
+        <a href="repair.html" class="btn btn-small header-cta">
+            Tư vấn sửa chữa ↗
+        </a>
+    </div>
+</header>
+
+<main id="main">
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="eyebrow">TIVAREK · QUẢNG NGÃI</span>
+
+                <h1>
+                    Thiết bị tốt.<br>
+                    <em>Tư vấn thật lòng.</em>
+                </h1>
 
                 <p>
-                    Thiết bị điện tử chất lượng,
-                    giá hợp lý, bảo hành uy tín.
+                    Tivi, laptop, máy tính và phụ kiện phù hợp nhu cầu.
+                    Chú trọng chất lượng, giá hợp lý và dịch vụ
+                    sửa chữa tận tâm.
                 </p>
 
-                <a href="products.html" class="btn">
-                    Khám phá sản phẩm
+                <div class="hero-actions">
+                    <a href="products.html" class="btn">
+                        Khám phá sản phẩm →
+                    </a>
+                    <a href="repair.html" class="btn btn-outline">
+                        Sửa chữa thiết bị
+                    </a>
+                </div>
+
+                <div class="hero-features">
+                    <span>✓ Thông tin rõ ràng</span>
+                    <span>✓ Giá hợp lý</span>
+                    <span>✓ Bảo hành minh bạch</span>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="visual-circle"></div>
+                <div class="visual-main">📺</div>
+                <div class="visual-floating visual-laptop">💻 Laptop</div>
+                <div class="visual-floating visual-care">✦ Tận tâm</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="danh-muc">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow blue">DANH MỤC</span>
+                    <h2>Khám phá thiết bị</h2>
+                    <p>Tìm sản phẩm phù hợp với nhu cầu của bạn.</p>
+                </div>
+                <a href="products.html" class="text-link">Xem tất cả ↗</a>
+            </div>
+
+            <div class="category-grid">
+                <a href="products.html?category=tivi" class="category-card">
+                    <span>📺</span><strong>Tivi</strong>
+                    <small>Xem sản phẩm →</small>
+                </a>
+                <a href="products.html?category=laptop" class="category-card">
+                    <span>💻</span><strong>Laptop</strong>
+                    <small>Xem sản phẩm →</small>
+                </a>
+                <a href="products.html?category=desktop" class="category-card">
+                    <span>🖥️</span><strong>Máy tính bàn</strong>
+                    <small>Xem sản phẩm →</small>
+                </a>
+                <a href="products.html?category=player" class="category-card">
+                    <span>📀</span><strong>Đầu đĩa</strong>
+                    <small>Xem sản phẩm →</small>
+                </a>
+                <a href="products.html?category=accessory" class="category-card">
+                    <span>🔌</span><strong>Phụ kiện</strong>
+                    <small>Xem sản phẩm →</small>
                 </a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="products container">
-            <h2>Sản phẩm nổi bật</h2>
+    <section class="section section-soft">
+        <div class="container">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow blue">GỢI Ý HÔM NAY</span>
+                    <h2>Sản phẩm nổi bật</h2>
+                    <p>Danh sách mẫu để thực hành giao diện.</p>
+                </div>
+                <a href="products.html" class="text-link">Tất cả sản phẩm ↗</a>
+            </div>
 
-            <div class="product-grid">
-                <article class="product-card">
-                    <h3>Laptop đã qua sử dụng</h3>
-                    <p>Được kiểm tra trước khi bán.</p>
+            <div id="featured-products" class="product-grid">
+                <p class="loading">Đang tải sản phẩm...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container service-banner">
+            <div class="service-art" aria-hidden="true">
+                <span>🛠️</span>
+                <strong>CHĂM SÓC THIẾT BỊ</strong>
+            </div>
+            <div class="service-content">
+                <span class="eyebrow blue">DỊCH VỤ SỬA CHỮA</span>
+                <h2>Máy gặp vấn đề?<br>Hãy để TIVAREK lắng nghe.</h2>
+                <p>
+                    Hướng đến quy trình kiểm tra rõ ràng, báo giá
+                    trước khi sửa và chăm sóc thiết bị cẩn thận.
+                </p>
+                <a href="repair.html" class="btn">
+                    Đăng ký sửa chữa →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-soft" id="cam-ket">
+        <div class="container">
+            <div class="section-heading center">
+                <div>
+                    <span class="eyebrow blue">GIÁ TRỊ TIVAREK</span>
+                    <h2>Sự an tâm bắt đầu từ những điều nhỏ nhất</h2>
+                </div>
+            </div>
+
+            <div class="promise-grid">
+                <article class="promise-card">
+                    <span>◎</span>
+                    <h3>Thông tin trung thực</h3>
+                    <p>Mô tả rõ cấu hình, tình trạng và đặc điểm của sản phẩm.</p>
                 </article>
 
-                <article class="product-card">
-                    <h3>Tivi</h3>
-                    <p>Nhiều lựa chọn phù hợp nhu cầu.</p>
+                <article class="promise-card">
+                    <span>◇</span>
+                    <h3>Giá cả hợp lý</h3>
+                    <p>Ưu tiên giải pháp phù hợp với ngân sách khách hàng.</p>
                 </article>
 
-                <article class="product-card">
-                    <h3>Phụ kiện máy tính</h3>
-                    <p>Giá hợp lý và tư vấn tận tâm.</p>
+                <article class="promise-card">
+                    <span>♡</span>
+                    <h3>Chăm sóc tận tâm</h3>
+                    <p>Hướng tới quy trình sửa chữa và bảo hành minh bạch.</p>
                 </article>
             </div>
-        </section>
-
-        <section class="services container">
-            <h2>Dịch vụ sửa chữa</h2>
-
-            <p>
-                Tiếp nhận, kiểm tra và sửa chữa
-                các thiết bị điện tử.
-            </p>
-
-            <a href="repair.html" class="btn">
-                Đăng ký sửa chữa
-            </a>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>TIVAREK - Quảng Ngãi, Việt Nam</p>
         </div>
-    </footer>
+    </section>
 
-    <script src="js/main.js" defer></script>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>TIVAREK</h3>
+            <p>Thiết bị điện tử và dịch vụ sửa chữa tại Quảng Ngãi.</p>
+            <p>Chất lượng tốt · Giá hợp lý · Bảo hành uy tín.</p>
+        </div>
+        <div>
+            <h4>Khám phá</h4>
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="repair.html">Sửa chữa</a>
+        </div>
+        <div>
+            <h4>Thông tin</h4>
+            <p>Quảng Ngãi, Việt Nam</p>
+            <p>Địa chỉ và số điện thoại chính thức sẽ cập nhật sau.</p>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>© <span data-year></span> TIVAREK</span>
+        <span>Website học tập · Chưa nhận đơn trực tuyến</span>
+    </div>
+</footer>
+
 </body>
 </html>

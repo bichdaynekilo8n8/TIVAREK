@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biểu mẫu đăng ký sửa chữa thiết bị TIVAREK">
+    <title>Đăng ký sửa chữa | TIVAREK</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <script src="JS/main.js" defer></script>
+    <script src="JS/repair.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Đi đến nội dung chính</a>
+
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span>📍 Quảng Ngãi, Việt Nam</span>
+        <span>Website demo — Chưa nhận đơn trực tuyến</span>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">T</span>
+            <span><strong>TIVAREK</strong><small>ĐIỆN TỬ & SỬA CHỮA</small></span>
+        </a>
+
+        <button class="menu-toggle" type="button"
+                aria-label="Mở menu"
+                aria-controls="main-nav"
+                aria-expanded="false">☰</button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="repair.html" aria-current="page">Đăng ký sửa chữa</a>
+            <a href="index.html#cam-ket">Cam kết</a>
+        </nav>
+
+        <a href="products.html" class="btn btn-small header-cta">
+            Xem sản phẩm ↗
+        </a>
+    </div>
+</header>
+
+<main id="main">
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a> / Đăng ký sửa chữa
+            </div>
+            <span class="eyebrow blue">DỊCH VỤ TIVAREK</span>
+            <h1>Thiết bị gặp sự cố?<br><em>Hãy để chúng tôi lắng nghe.</em></h1>
+            <p>
+                Điền thông tin để trải nghiệm biểu mẫu tiếp nhận sửa chữa.
+                Chức năng gửi yêu cầu thật chưa được triển khai.
+            </p>
+        </div>
+    </section>
+
+    <section class="section section-soft">
+        <div class="container repair-layout">
+
+            <div class="form-card">
+                <span class="eyebrow blue">PHIẾU TIẾP NHẬN</span>
+                <h2>Thông tin sửa chữa</h2>
+                <p class="form-intro">
+                    Các trường có dấu * là bắt buộc.
+                </p>
+
+                <div class="notice">
+                    ⓘ Đây là form demo. Thông tin chưa được
+                    gửi đến cửa hàng hoặc lưu vào Database.
+                </div>
+
+                <form id="repair-form" novalidate>
+
+                    <h3 class="form-section-title">
+                        <span>01</span> Thông tin khách hàng
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="full-name">Họ và tên *</label>
+                            <input id="full-name" name="fullName"
+                                   type="text" required
+                                   minlength="2" maxlength="80"
+                                   autocomplete="name"
+                                   placeholder="Nguyễn Văn A">
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Số điện thoại *</label>
+                            <input id="phone" name="phone"
+                                   type="tel" required
+                                   autocomplete="tel"
+                                   placeholder="09xxxxxxxx">
+                        </div>
+                    </div>
+
+                    <h3 class="form-section-title">
+                        <span>02</span> Thông tin thiết bị
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="device">Loại thiết bị *</label>
+                            <select id="device" name="device" required>
+                                <option value="">Chọn loại thiết bị</option>
+                                <option value="Tivi">Tivi</option>
+                                <option value="Laptop">Laptop</option>
+                                <option value="Máy tính bàn">Máy tính bàn</option>
+                                <option value="Đầu đĩa">Đầu đĩa</option>
+                                <option value="Phụ kiện">Phụ kiện</option>
+                                <option value="Khác">Thiết bị khác</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="brand">Thương hiệu / Model</label>
+                            <input id="brand" name="brand"
+                                   maxlength="100"
+                                   placeholder="Ví dụ: Dell, Samsung...">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="issue">Mô tả tình trạng lỗi *</label>
+                        <textarea id="issue" name="issue"
+                                  required minlength="12"
+                                  maxlength="1000" rows="5"
+                                  placeholder="Mô tả lỗi thiết bị đang gặp..."></textarea>
+                        <small id="issue-counter">0/1000 ký tự</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="contact-method">Cách liên hệ mong muốn</label>
+                            <select id="contact-method" name="contactMethod">
+                                <option value="Gọi điện">Gọi điện</option>
+                                <option value="Nhắn tin">Nhắn tin</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="photo">Ảnh thiết bị</label>
+                            <input id="photo" name="photo" type="file"
+                                   accept=".jpg,.jpeg,.png,.webp">
+                            <small id="file-hint">
+                                JPG, PNG, WebP — tối đa 5 MB.
+                            </small>
+                        </div>
+                    </div>
+
+                    <label class="checkbox-line">
+                        <input type="checkbox" id="demo-consent" required>
+                        <span>
+                            Tôi hiểu đây là bản demo, thông tin
+                            chưa được gửi đến cửa hàng. *
+                        </span>
+                    </label>
+
+                    <div id="form-feedback" class="form-feedback"
+                         role="status" aria-live="polite"
+                         tabindex="-1" hidden></div>
+
+                    <button type="submit" class="btn btn-wide">
+                        Kiểm tra thông tin (Demo) →
+                    </button>
+
+                    <p class="form-note">
+                        Chưa tạo phiếu sửa chữa thật,
+                        chưa gửi email hoặc SMS.
+                    </p>
+                </form>
+            </div>
+
+            <aside class="repair-aside">
+                <div class="aside-dark">
+                    <span class="eyebrow">TIVAREK ĐỒNG HÀNH</span>
+                    <h2>Chăm chút từng thiết bị.</h2>
+                    <p>
+                        Hướng đến tư vấn rõ ràng, sửa chữa
+                        cẩn thận và trách nhiệm với khách hàng.
+                    </p>
+                    <span class="aside-symbol">✦</span>
+                </div>
+
+                <div class="aside-white">
+                    <h3>Quy trình dự kiến</h3>
+                    <ol class="repair-steps">
+                        <li>Tiếp nhận thiết bị</li>
+                        <li>Kiểm tra tình trạng</li>
+                        <li>Trao đổi phương án và báo giá</li>
+                        <li>Sửa chữa, kiểm tra và bàn giao</li>
+                    </ol>
+                </div>
+
+                <div class="aside-white">
+                    <h3>Khu vực phục vụ</h3>
+                    <p>Quảng Ngãi, Việt Nam.</p>
+                    <p>Địa chỉ chính thức sẽ được cập nhật sau.</p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>TIVAREK</h3>
+            <p>Thiết bị điện tử và dịch vụ sửa chữa tại Quảng Ngãi.</p>
+        </div>
+        <div>
+            <h4>Khám phá</h4>
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Sản phẩm</a>
+        </div>
+        <div>
+            <h4>Lưu ý</h4>
+            <p>Form sửa chữa hiện chỉ hoạt động ở chế độ demo.</p>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© <span data-year></span> TIVAREK</span>
+        <span>Website học tập · Chưa nhận đơn trực tuyến</span>
+    </div>
+</footer>
+
+</body>
+</html>

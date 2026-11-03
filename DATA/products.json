@@ -1,30 +1,123 @@
 
 [
   {
-    "id": 1,
-    "name": "Laptop Dell đã qua sử dụng",
+    "id": "TVK001",
+    "name": "Tivi LED 43 inch",
+    "category": "tivi",
+    "condition": "used",
+    "price": 2850000,
+    "stock": 2,
+    "warrantyMonths": 3,
+    "featured": true,
+    "description": "Tivi LED 43 inch đã qua sử dụng, phục vụ nhu cầu giải trí gia đình.",
+    "specs": ["43 inch", "Full HD", "HDMI", "USB"]
+  },
+  {
+    "id": "TVK002",
+    "name": "Laptop văn phòng 14 inch",
     "category": "laptop",
     "condition": "used",
     "price": 4500000,
-    "stock": 2,
-    "warrantyMonths": 3
+    "stock": 3,
+    "warrantyMonths": 3,
+    "featured": true,
+    "description": "Laptop phục vụ công việc văn phòng và học tập.",
+    "specs": ["Màn hình 14 inch", "RAM 8GB", "SSD 256GB"]
   },
   {
-    "id": 2,
-    "name": "Tivi Samsung",
-    "category": "tivi",
+    "id": "TVK003",
+    "name": "Máy tính bàn văn phòng",
+    "category": "desktop",
     "condition": "used",
-    "price": 3200000,
-    "stock": 1,
-    "warrantyMonths": 3
+    "price": 3900000,
+    "stock": 2,
+    "warrantyMonths": 3,
+    "featured": true,
+    "description": "Máy tính bàn đáp ứng các tác vụ thông dụng.",
+    "specs": ["RAM 8GB", "SSD 256GB", "Đồ họa tích hợp"]
   },
   {
-    "id": 3,
-    "name": "Chuột máy tính",
+    "id": "TVK004",
+    "name": "Chuột máy tính không dây",
     "category": "accessory",
     "condition": "new",
     "price": 150000,
-    "stock": 10,
-    "warrantyMonths": 6
+    "stock": 12,
+    "warrantyMonths": 6,
+    "featured": true,
+    "description": "Chuột không dây cho máy tính và laptop.",
+    "specs": ["Kết nối không dây", "Thiết kế gọn nhẹ"]
+  },
+  {
+    "id": "TVK005",
+    "name": "Tivi LED 32 inch",
+    "category": "tivi",
+    "condition": "used",
+    "price": 1800000,
+    "stock": 1,
+    "warrantyMonths": 3,
+    "featured": false,
+    "description": "Tivi kích thước nhỏ, phù hợp phòng ngủ.",
+    "specs": ["32 inch", "HD", "HDMI"]
+  },
+  {
+    "id": "TVK006",
+    "name": "Laptop học tập 15.6 inch",
+    "category": "laptop",
+    "condition": "used",
+    "price": 6200000,
+    "stock": 1,
+    "warrantyMonths": 6,
+    "featured": false,
+    "description": "Laptop màn hình lớn dành cho học sinh, sinh viên.",
+    "specs": ["15.6 inch", "RAM 8GB", "SSD 512GB"]
+  },
+  {
+    "id": "TVK007",
+    "name": "Đầu đĩa DVD",
+    "category": "player",
+    "condition": "used",
+    "price": 450000,
+    "stock": 2,
+    "warrantyMonths": 1,
+    "featured": false,
+    "description": "Đầu đĩa DVD phục vụ nhu cầu giải trí.",
+    "specs": ["DVD", "Cổng AV", "Điều khiển từ xa"]
+  },
+  {
+    "id": "TVK008",
+    "name": "Bàn phím máy tính USB",
+    "category": "accessory",
+    "condition": "new",
+    "price": 180000,
+    "stock": 15,
+    "warrantyMonths": 6,
+    "featured": false,
+    "description": "Bàn phím USB sử dụng cho máy tính bàn.",
+    "specs": ["USB", "Bố cục tiêu chuẩn"]
+  },
+  {
+    "id": "TVK009",
+    "name": "Màn hình máy tính 24 inch",
+    "category": "desktop",
+    "condition": "used",
+    "price": 1700000,
+    "stock": 0,
+    "warrantyMonths": 3,
+    "featured": false,
+    "description": "Màn hình máy tính phục vụ học tập và làm việc.",
+    "specs": ["24 inch", "Full HD", "HDMI"]
+  },
+  {
+    "id": "TVK010",
+    "name": "Ổ cắm điện đa năng",
+    "category": "accessory",
+    "condition": "new",
+    "price": 220000,
+    "stock": 8,
+    "warrantyMonths": 6,
+    "featured": false,
+    "description": "Ổ cắm điện hỗ trợ kết nối nhiều thiết bị.",
+    "specs": ["Nhiều ổ cắm", "Công tắc nguồn"]
   }
 ]

@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Danh sách sản phẩm điện tử TIVAREK">
+    <title>Sản phẩm | TIVAREK</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <script src="JS/main.js" defer></script>
+    <script src="JS/products.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Đi đến nội dung chính</a>
+
+<div class="topbar">
+    <div class="container topbar-inner">
+        <span>📍 Quảng Ngãi, Việt Nam</span>
+        <span>Website demo — Chưa nhận đơn trực tuyến</span>
+    </div>
+</div>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">T</span>
+            <span><strong>TIVAREK</strong><small>ĐIỆN TỬ & SỬA CHỮA</small></span>
+        </a>
+
+        <button class="menu-toggle" type="button"
+                aria-label="Mở menu"
+                aria-controls="main-nav"
+                aria-expanded="false">☰</button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Điều hướng chính">
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html" aria-current="page">Sản phẩm</a>
+            <a href="repair.html">Đăng ký sửa chữa</a>
+            <a href="index.html#cam-ket">Cam kết</a>
+        </nav>
+
+        <a href="repair.html" class="btn btn-small header-cta">
+            Tư vấn sửa chữa ↗
+        </a>
+    </div>
+</header>
+
+<main id="main">
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a> / Sản phẩm
+            </div>
+            <span class="eyebrow blue">THIẾT BỊ ĐIỆN TỬ</span>
+            <h1>Chọn đúng thiết bị.<br><em>Giá thật hợp lý.</em></h1>
+            <p>
+                Khám phá các sản phẩm, tình trạng, giá tham khảo
+                và chính sách bảo hành.
+            </p>
+        </div>
+    </section>
+
+    <section class="section catalog-section">
+        <div class="container">
+
+            <div class="notice">
+                ⓘ Đây là danh sách sản phẩm minh họa.
+                Giá bán, tồn kho và bảo hành chưa phải thông tin thực tế.
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow blue">DANH SÁCH</span>
+                    <h2>Tất cả sản phẩm</h2>
+                </div>
+                <p id="result-count" aria-live="polite">Đang tải...</p>
+            </div>
+
+            <form id="filter-form" class="filter-panel" role="search">
+
+                <div class="field">
+                    <label for="search">Tìm kiếm</label>
+                    <input id="search" type="search"
+                           placeholder="Tên sản phẩm...">
+                </div>
+
+                <div class="field">
+                    <label for="category">Danh mục</label>
+                    <select id="category">
+                        <option value="all">Tất cả</option>
+                        <option value="tivi">Tivi</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="desktop">Máy tính bàn</option>
+                        <option value="player">Đầu đĩa</option>
+                        <option value="accessory">Phụ kiện</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="condition">Tình trạng</label>
+                    <select id="condition">
+                        <option value="all">Tất cả</option>
+                        <option value="used">Đã qua sử dụng</option>
+                        <option value="new">Mới</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="price">Khoảng giá</label>
+                    <select id="price">
+                        <option value="all">Tất cả</option>
+                        <option value="under1">Dưới 1 triệu</option>
+                        <option value="1to5">Từ 1–5 triệu</option>
+                        <option value="over5">Trên 5 triệu</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="sort">Sắp xếp</label>
+                    <select id="sort">
+                        <option value="default">Mặc định</option>
+                        <option value="asc">Giá tăng dần</option>
+                        <option value="desc">Giá giảm dần</option>
+                        <option value="name">Tên A–Z</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-light" type="button" id="reset-filters">
+                    Xóa lọc
+                </button>
+            </form>
+
+            <div id="products-grid" class="product-grid" aria-live="polite">
+                <p class="loading">Đang tải dữ liệu...</p>
+            </div>
+
+            <div id="empty-state" class="empty-state" hidden>
+                <div>🔎</div>
+                <h3>Không tìm thấy sản phẩm</h3>
+                <p>Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm.</p>
+                <button class="btn" type="button" id="empty-reset">
+                    Xem tất cả
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<dialog id="product-dialog" class="product-dialog"
+        aria-labelledby="dialog-title">
+    <button type="button" id="close-dialog"
+            class="dialog-close" aria-label="Đóng">×</button>
+    <div id="dialog-content"></div>
+</dialog>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h3>TIVAREK</h3>
+            <p>Điện tử và sửa chữa tại Quảng Ngãi.</p>
+        </div>
+        <div>
+            <h4>Khám phá</h4>
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Sản phẩm</a>
+            <a href="repair.html">Sửa chữa</a>
+        </div>
+        <div>
+            <h4>Lưu ý</h4>
+            <p>Dữ liệu sản phẩm đang ở chế độ demo.</p>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>© <span data-year></span> TIVAREK</span>
+        <span>Website học tập · Chưa nhận đơn trực tuyến</span>
+    </div>
+</footer>
+
+</body>
+</html>

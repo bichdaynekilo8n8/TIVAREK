@@ -1,0 +1,24 @@
+
+# Editor
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.bak
