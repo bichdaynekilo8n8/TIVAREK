@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": 1,
+    "name": "Laptop Dell đã qua sử dụng",
+    "category": "laptop",
+    "condition": "used",
+    "price": 4500000,
+    "stock": 2,
+    "warrantyMonths": 3
+  },
+  {
+    "id": 2,
+    "name": "Tivi Samsung",
+    "category": "tivi",
+    "condition": "used",
+    "price": 3200000,
+    "stock": 1,
+    "warrantyMonths": 3
+  },
+  {
+    "id": 3,
+    "name": "Chuột máy tính",
+    "category": "accessory",
+    "condition": "new",
+    "price": 150000,
+    "stock": 10,
+    "warrantyMonths": 6
+  }
+]
