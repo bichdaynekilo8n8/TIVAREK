@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Thông tin đặt hàng | TIVAREK</title>
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week15.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body class="w23-order-page"><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header th:replace="~{week15/fragments/nav :: nav}"></header>
+<main id="main-content" tabindex="-1" class="wrap w23-order-main">
+  <nav class="w23-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/san-pham}">Sản phẩm</a><span aria-hidden="true">/</span><a th:href="@{/gio-hang}">Giỏ hàng</a><span aria-hidden="true">/</span><span>Xác nhận đặt hàng</span></nav>
+  <div class="w23-order-heading"><div><span class="w23-label">BƯỚC CUỐI / XÁC NHẬN THÔNG TIN</span><h1 th:text="${counter ? 'Lập đơn bán tại quầy' : 'Thông tin đặt hàng'}">Thông tin đặt hàng</h1><p>Hãy kiểm tra thông tin liên hệ và sản phẩm trước khi tạo đơn.</p></div></div>
+  <div th:if="${failure}" class="notice error" role="alert" th:text="${failure}"></div>
+  <div th:if="${success}" class="notice success" role="status" th:text="${success}"></div>
+
+  <div class="w23-checkout-layout">
+    <section class="box w23-checkout-form-panel">
+      <div class="w23-card-heading"><span class="w23-step-number">01</span><div><h2>Thông tin nhận hàng</h2><p>Các trường có dấu * là bắt buộc.</p></div></div>
+      <form th:if="${counter}" class="w23-counter-search" method="get" th:action="@{/admin/orders/new}">
+        <label for="customer-search">Tìm khách hàng cũ</label>
+        <div><input id="customer-search" name="customerQ" maxlength="80" th:value="${customerQ}" placeholder="Tên, số điện thoại hoặc mã khách"><button class="secondary" type="submit">Tìm khách</button></div>
+      </form>
+      <form class="w23-checkout-form" method="post" th:action="${counter} ? @{/admin/orders/new} : @{/thanh-toan}" data-w23-submit-lock>
+        <label th:if="${counter}" for="counterCustomer">Khách hàng trong hệ thống (tùy chọn)</label>
+        <select th:if="${counter}" id="counterCustomer" name="counterCustomerId">
+          <option value="">Khách vãng lai</option>
+          <option th:each="c : ${customers}" th:value="${c.CustomerID}" th:text="${c.CustomerCode} + ' · ' + ${c.FullName} + ' · ' + ${c.Phone}">Khách hàng</option>
+        </select>
+        <label for="recipient-name">Họ và tên người nhận *</label>
+        <input id="recipient-name" name="recipientName" maxlength="180" autocomplete="name" placeholder="Tên người nhận hàng" required>
+        <label for="recipient-phone">Số điện thoại *</label>
+        <input id="recipient-phone" name="recipientPhone" type="tel" inputmode="tel" maxlength="25" pattern="\+?[0-9]{8,15}" autocomplete="tel" placeholder="VD: 0335135549" required>
+        <label for="fulfillment">Hình thức nhận hàng</label>
+        <select name="fulfillmentMethod" id="fulfillment" data-w23-fulfillment>
+          <option value="PICKUP">Nhận tại cửa hàng</option>
+          <option value="DELIVERY">Giao tận nơi (chưa tính phí vận chuyển)</option>
+        </select>
+        <label for="delivery-address">Địa chỉ nhận hàng <span class="w23-delivery-required" hidden>*</span></label>
+        <textarea id="delivery-address" name="address" rows="4" maxlength="2000" autocomplete="street-address" placeholder="Số nhà, thôn/xã, tỉnh/thành… (bắt buộc khi giao tận nơi)" data-w23-address></textarea>
+        <p class="w23-checkout-warning"><strong>Lưu ý:</strong> Việc gửi đơn chưa đồng nghĩa với thanh toán thành công. Cửa hàng sẽ xác nhận hàng, giá và phương thức thanh toán. Phí vận chuyển hiện chưa được tính tự động.</p>
+        <button class="w23-place-order" type="submit" th:disabled="${#lists.isEmpty(cart.lines)}" th:text="${counter ? 'Tạo đơn tại quầy' : 'Gửi đơn đặt hàng'}">Gửi đơn đặt hàng</button>
+      </form>
+    </section>
+    <aside class="box w23-checkout-summary">
+      <div class="w23-card-heading"><span class="w23-step-number">02</span><div><h2>Đơn hàng của bạn</h2><p>Vui lòng kiểm tra mặt hàng và số lượng.</p></div></div>
+      <div class="w23-checkout-items">
+        <div th:each="l : ${cart.lines}" class="w23-checkout-item"><strong th:text="${l.name}">Sản phẩm</strong><span th:text="${l.quantity} + ' × ' + ${#numbers.formatDecimal(l.unitPrice,1,'POINT',0,'COMMA')} + ' đ'">0 đ</span></div>
+        <p th:if="${#lists.isEmpty(cart.lines)}">Giỏ hàng trống. <a th:href="@{/san-pham}">Chọn sản phẩm</a>.</p>
+      </div>
+      <div class="w23-checkout-total"><span>Tạm tính</span><strong th:text="${#numbers.formatDecimal(cart.total,1,'POINT',0,'COMMA')} + ' đ'">0 đ</strong></div>
+      <a class="w23-back-to-shop" th:href="@{/gio-hang}">← Chỉnh sửa giỏ hàng</a>
+      <div class="w23-checkout-support"><strong>Bạn muốn hỏi thêm?</strong><span>Liên hệ trực tiếp trước khi đặt hàng.</span><a href="tel:+84335135549">0335 135 549</a></div>
+    </aside>
+  </div>
+</main>
+<footer class="w23-simple-footer">TIVAREK · Điện tử &amp; sửa chữa · Quảng Ngãi</footer>
+</body>
+</html>

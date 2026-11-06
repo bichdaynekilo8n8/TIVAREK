@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Khám phá laptop, TV, máy tính và phụ kiện điện tử tại TIVAREK Quảng Ngãi. Xem giá, tình trạng và hàng còn tại cửa hàng.">
+  <title>Sản phẩm và thiết bị cũ | TIVAREK</title>
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/storefront.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+<meta name="robots" th:content="${seoIndexable ? 'index,follow' : 'noindex,follow'}">
+<link rel="canonical" th:if="${seoCanonical != null}" th:href="${seoCanonical}">
+<meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="TIVAREK">
+<meta property="og:type" content="website"><meta property="og:url" th:if="${seoCanonical != null}" th:content="${seoCanonical}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header th:replace="~{storefront/fragments/header :: header}"></header>
+<main id="main-content" tabindex="-1">
+  <section class="sf-hero"><div class="sf-container">
+    <span class="sf-eyebrow">TIVAREK · CỬA HÀNG QUẢNG NGÃI</span>
+    <h1>Thiết bị phù hợp. <em>Giá rõ ràng.</em></h1>
+    <p>Laptop, TV, máy tính và phụ kiện được quản lý trực tiếp từ kho cửa hàng.</p>
+  </div></section>
+  <div class="sf-container sf-content">
+    <div class="sf-title-row"><div><span class="sf-eyebrow accent">DANH MỤC SẢN PHẨM</span><h2>Khám phá hàng đang đăng bán</h2></div>
+      <p th:text="${data.total} + ' mặt hàng phù hợp'"></p></div>
+    <div class="sf-shop-layout">
+      <aside class="sf-filters" aria-label="Bộ lọc sản phẩm">
+        <form method="get" th:action="@{/san-pham}">
+          <h3>Bộ lọc</h3>
+          <label for="q">Tên sản phẩm, SKU hoặc mã máy</label>
+          <input id="q" name="q" type="search" maxlength="100" placeholder="VD: Dell, laptop, HDMI" th:value="${filter.q}">
+          <label for="type">Loại hàng</label><select id="type" name="type"><option value="all">Tất cả</option><option value="bulk" th:selected="${filter.type == 'bulk'}">Phụ kiện / hàng số lượng</option><option value="device" th:selected="${filter.type == 'device'}">Thiết bị riêng lẻ</option></select>
+          <label for="category">Danh mục</label><select id="category" name="categoryId"><option value="">Tất cả danh mục</option><option th:each="c:${categories}" th:value="${c.id}" th:text="${c.name}" th:selected="${filter.categoryId != null and filter.categoryId == c.id}"></option></select>
+          <label for="brand">Thương hiệu</label><select id="brand" name="brandId"><option value="">Tất cả thương hiệu</option><option th:each="b:${brands}" th:value="${b.id}" th:text="${b.name}" th:selected="${filter.brandId != null and filter.brandId == b.id}"></option></select>
+          <label for="grade">Tình trạng (thiết bị lẻ)</label><select id="grade" name="grade"><option value="">Mọi tình trạng</option><option value="NEW" th:selected="${filter.grade == 'NEW'}">Mới</option><option value="LIKE_NEW" th:selected="${filter.grade == 'LIKE_NEW'}">Như mới</option><option value="GOOD" th:selected="${filter.grade == 'GOOD'}">Tốt</option><option value="FAIR" th:selected="${filter.grade == 'FAIR'}">Đã sử dụng</option><option value="FAULTY" th:selected="${filter.grade == 'FAULTY'}">Cần sửa</option></select>
+          <div class="sf-price-fields"><div><label for="minPrice">Giá từ (đ)</label><input id="minPrice" name="minPrice" type="number" min="0" step="1" placeholder="0" th:value="${filter.minPrice}"></div><div><label for="maxPrice">Giá đến (đ)</label><input id="maxPrice" name="maxPrice" type="number" min="0" step="1" placeholder="Không giới hạn" th:value="${filter.maxPrice}"></div></div>
+          <label for="sort">Sắp xếp</label><select id="sort" name="sort"><option value="newest" th:selected="${filter.sort == 'newest'}">Mới cập nhật</option><option value="price_asc" th:selected="${filter.sort == 'price_asc'}">Giá thấp → cao</option><option value="price_desc" th:selected="${filter.sort == 'price_desc'}">Giá cao → thấp</option><option value="name" th:selected="${filter.sort == 'name'}">Tên A → Z</option></select>
+          <button class="sf-button" type="submit">Áp dụng bộ lọc</button><a class="sf-reset" th:href="@{/san-pham}">Xóa tất cả bộ lọc</a>
+        </form>
+      </aside>
+      <section class="sf-results" aria-label="Kết quả sản phẩm">
+        <div class="sf-results-heading"><span th:text="'Trang ' + ${data.currentPage + 1} + (${data.totalPages > 0} ? ' / ' + ${data.totalPages} : '')"></span><span>Giá hiển thị bằng VND</span></div>
+        <div th:if="${#lists.isEmpty(data.items)}" class="sf-empty"><span aria-hidden="true">⌕</span><h3>Chưa tìm thấy sản phẩm phù hợp</h3><p>Hãy thử bỏ bớt bộ lọc hoặc liên hệ cửa hàng để được tư vấn.</p><a class="sf-button" th:href="@{/san-pham}">Xem tất cả sản phẩm</a></div>
+        <div class="product-grid">
+          <article class="product-card" th:each="item:${data.items}">
+            <a class="product-media" th:href="${item.detailUrl}" th:aria-label="'Xem chi tiết ' + ${item.name}">
+              <img th:if="${item.imageUrl != null}" th:src="${item.imageUrl}" th:alt="${item.name}" loading="lazy" width="800" height="600" decoding="async">
+              <span th:unless="${item.imageUrl != null}" class="media-placeholder"><span aria-hidden="true">▣</span>Đang cập nhật ảnh</span>
+              <span class="product-type" th:text="${item.device ? 'MÁY RIÊNG LẺ' : 'PHỤ KIỆN'}"></span>
+            </a>
+            <div class="product-copy"><small th:text="${item.brand == null ? item.category : item.brand + ' · ' + item.category}"></small>
+              <h3><a th:href="${item.detailUrl}" th:text="${item.name}"></a></h3>
+              <p class="product-code" th:text="${item.code}"></p>
+              <p class="product-price" th:text="${#numbers.formatDecimal(item.price,1,'POINT',0,'COMMA')} + ' đ'"></p>
+              <div class="product-footer"><span class="stock-tag" th:classappend="${item.inStock ? ' in-stock' : ' out-stock'}" th:text="${item.inStock ? (item.device ? 'Còn 1 máy' : 'Còn ' + item.available + ' sản phẩm') : 'Tạm hết hàng'}"></span><a class="sf-detail-link" th:href="${item.detailUrl}">Chi tiết →</a></div>
+            </div>
+          </article>
+        </div>
+        <nav class="sf-pagination" aria-label="Phân trang" th:if="${data.totalPages > 1}">
+          <a th:if="${data.hasPrevious}" th:href="@{/san-pham(q=${filter.q},categoryId=${filter.categoryId},brandId=${filter.brandId},type=${filter.type},grade=${filter.grade},minPrice=${filter.minPrice},maxPrice=${filter.maxPrice},sort=${filter.sort},page=${filter.page - 1})}">← Trước</a>
+          <span th:text="'Trang ' + ${data.currentPage + 1} + ' / ' + ${data.totalPages}"></span>
+          <a th:if="${data.hasNext}" th:href="@{/san-pham(q=${filter.q},categoryId=${filter.categoryId},brandId=${filter.brandId},type=${filter.type},grade=${filter.grade},minPrice=${filter.minPrice},maxPrice=${filter.maxPrice},sort=${filter.sort},page=${filter.page + 1})}">Sau →</a>
+        </nav>
+      </section>
+    </div>
+  </div>
+</main>
+<footer th:replace="~{storefront/fragments/footer :: footer}"></footer>
+</body></html>

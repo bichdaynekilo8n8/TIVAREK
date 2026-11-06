@@ -1,0 +1,5 @@
+{
+  "name":"tivarek-week24-audit","private":true,"type":"module",
+  "scripts":{"browser":"node audit-browser.mjs","lighthouse":"node measure-lighthouse.mjs"},
+  "devDependencies":{"playwright":"1.62.1","axe-core":"4.11.0","lighthouse":"13.0.1"}
+}

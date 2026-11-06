@@ -1,0 +1,26 @@
+/* Week 24: final overrides; keep keyboard focus visible and content readable at 320px. */
+:root { scroll-padding-top: 110px; }
+.w24-skip { position:fixed; top:8px; left:8px; z-index:1000; padding:12px 18px; background:#fff; color:#142136; border:3px solid #142136; transform:translateY(-180%); }
+.w24-skip:focus { transform:none; }
+:where(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #1452b3; outline-offset:3px; }
+:where(.site-header,.site-footer,.w23-hero,.w23-contact) :focus-visible { outline-color:#ffb788; box-shadow:0 0 0 2px #142136; }
+:where(input,select,textarea,button) { max-width:100%; }
+:where(input:not([type=hidden]):not([type=checkbox]):not([type=radio]),select,button,summary) { min-height:44px; }
+:where(main,section,article,aside,form,nav) { min-width:0; }
+:where(h1,h2,h3,p,dd,.product-code,.sf-breadcrumb) { overflow-wrap:anywhere; }
+:where(.site-nav,.site-actions,.site-footer,.sf-pagination) a { display:inline-flex; align-items:center; min-height:44px; }
+.product-code,.media-placeholder { color:#526477; }
+.product-price,.sf-detail-price { color:#b43d20; }
+.sf-pagination { flex-wrap:wrap; }
+.sf-filters form { grid-template-columns:1fr; }
+.sf-filters form > * { grid-column:1 / -1; }
+@media(max-width:600px) {
+  :where(input:not([type=hidden]),select,textarea) { font-size:16px; }
+  .sf-facts div,.sf-spec-table div { flex-wrap:wrap; }
+  .sf-facts dd,.sf-spec-table dd { text-align:left; }
+  .site-header { position:relative; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto!important; }
+  *,*::before,*::after { animation:none!important; transition:none!important; }
+}

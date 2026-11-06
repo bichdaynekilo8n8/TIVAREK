@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tra cứu bảo hành — TIVAREK</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week16.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head><body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header class="w16-header"><a class="brand" th:href="@{/}">TIVAREK</a><nav><a th:href="@{/san-pham}">Sản phẩm</a><a th:href="@{/sua-chua}">Sửa chữa</a><a th:href="@{/login}">Đăng nhập</a></nav></header>
+<main id="main-content" tabindex="-1" class="w16-shell narrow"><p class="eyebrow">DỊCH VỤ SAU BÁN HÀNG</p><h1>Tra cứu bảo hành</h1>
+<p class="lead">Nhập mã phiếu bảo hành và mã xác minh được cửa hàng cung cấp khi bàn giao. Không chia sẻ mã xác minh với người khác.</p>
+<div class="alert bad" th:if="${failure}" th:text="${failure}"></div>
+<section class="panel"><h2>Thông tin phiếu</h2>
+<form th:action="@{/tra-cuu-bao-hanh}" method="post" class="w16-form">
+  <label>Mã phiếu bảo hành<input name="code" placeholder="BH-..." pattern="BH-[A-Fa-f0-9]{24}" maxlength="27" required autocomplete="off"></label>
+  <label>Mã xác minh<input name="token" placeholder="Mã gồm 48 ký tự" pattern="[A-Fa-f0-9]{48}" minlength="48" maxlength="48" required autocomplete="off"></label>
+  <button class="button">Tra cứu</button>
+</form><p class="muted">Mất mã? Liên hệ cửa hàng và cung cấp chứng từ mua/sửa để nhân viên xác minh trước khi cấp mã mới.</p></section>
+<p><a th:href="@{/account/warranties}">Tôi đã có tài khoản — xem bảo hành của tôi</a></p>
+</main></body></html>

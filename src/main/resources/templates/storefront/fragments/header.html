@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header" class="site-header">
+  <div class="sf-container site-header-inner">
+    <a class="site-brand" th:href="@{/}" aria-label="TIVAREK — Trang chủ">
+      <img class="sf-brand-logo" th:src="@{/images/tivarek-wordmark.png}"
+           alt="TIVAREK — Điện tử và sửa chữa" width="190" height="68">
+    </a>
+    <nav class="site-nav" aria-label="Điều hướng chính">
+      <a th:href="@{/san-pham}">Sản phẩm</a>
+      <a th:href="@{/sua-chua}">Sửa chữa</a>
+      <a th:href="@{/tra-cuu-sua-chua}">Tra cứu sửa chữa</a>
+      <a th:href="@{/tra-cuu-bao-hanh}">Bảo hành</a>
+      <a th:href="@{/account/orders}">Đơn của tôi</a>
+    </nav>
+    <div class="site-actions">
+      <a class="site-link" th:href="@{/login}">Đăng nhập</a>
+      <a class="site-cart" th:href="@{/gio-hang}" aria-label="Xem giỏ hàng">Giỏ hàng <span aria-hidden="true">↗</span></a>
+    </div>
+    <details class="site-mobile-menu">
+      <summary aria-label="Mở hoặc đóng menu điều hướng">Menu <span aria-hidden="true">☰</span></summary>
+      <nav aria-label="Điều hướng trên điện thoại">
+        <a th:href="@{/}">Trang chủ</a>
+        <a th:href="@{/san-pham}">Sản phẩm</a>
+        <a th:href="@{/gio-hang}">Giỏ hàng</a>
+        <a th:href="@{/account/orders}">Đơn của tôi</a>
+        <a th:href="@{/sua-chua}">Đăng ký sửa chữa</a>
+        <a th:href="@{/tra-cuu-sua-chua}">Tra cứu sửa chữa</a>
+        <a th:href="@{/tra-cuu-bao-hanh}">Tra cứu bảo hành</a>
+        <a th:href="@{/login}">Đăng nhập</a>
+        <a th:href="@{/register}">Tạo tài khoản</a>
+      </nav>
+    </details>
+  </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,82 @@
+[
+  {
+    "path": "src/main/resources/db/migration/V10__week16_warranty_workflow.sql",
+    "unchanged": true,
+    "sha256": "81bcecf073bb729ec95aa073c8c0c4a301fa895996e88792eacf5f08e951fc0d"
+  },
+  {
+    "path": "src/main/resources/db/migration/V11__week17_reports.sql",
+    "unchanged": true,
+    "sha256": "7d03c58df40a4278ed4279b8adc7ae72148f708d259f6ac085f801281d868b8f"
+  },
+  {
+    "path": "src/main/resources/db/migration/V12__week22_transaction_integrity.sql",
+    "unchanged": true,
+    "sha256": "7b1fe6f52ddca71c7d3210995ddd931e80b277d2159efa1f5ed3285c46696e84"
+  },
+  {
+    "path": "src/main/resources/db/migration/V1__initial_tivarek_schema.sql",
+    "unchanged": true,
+    "sha256": "23ec516c8305bed4c7ee40df0e56cb50205f90a8e821347ee58a2b381f420f13"
+  },
+  {
+    "path": "src/main/resources/db/migration/V2__search_indexes.sql",
+    "unchanged": true,
+    "sha256": "805fb73713e571347f3cc9e12213925d34dfb073b7abf2934e4a38e156a474ee"
+  },
+  {
+    "path": "src/main/resources/db/migration/V3__week9_roles_and_permissions.sql",
+    "unchanged": true,
+    "sha256": "04c99f60074f0b2b68e8f0c6c641b9c64b0f661a2edc9a77c9f246e8d4a1af56"
+  },
+  {
+    "path": "src/main/resources/db/migration/V4__week10_product_management.sql",
+    "unchanged": true,
+    "sha256": "c39f0acd03da61dbefc0a55d0828dc900eac34a51bb032ae2d05c1c9427fa9f4"
+  },
+  {
+    "path": "src/main/resources/db/migration/V5__week11_device_management.sql",
+    "unchanged": true,
+    "sha256": "6a77e537cb177ba7d0ff6d932afd8f81786c4212d6fe119b7b4eb393254723c4"
+  },
+  {
+    "path": "src/main/resources/db/migration/V6__week12_inventory_management.sql",
+    "unchanged": true,
+    "sha256": "51a71c2e0f4ee48d041ff7a88d94b8c495ed5278888ea04589bf2ff8756c494c"
+  },
+  {
+    "path": "src/main/resources/db/migration/V7__week13_public_catalog.sql",
+    "unchanged": true,
+    "sha256": "b441b60791dc71fab9813065c074ab59500101f03280741bc60e01f19c2b930f"
+  },
+  {
+    "path": "src/main/resources/db/migration/V8_1__ensure_customer_registration_role.sql",
+    "unchanged": true,
+    "sha256": "69b000bc09379ff65ecd649df26162d9804152acd6fd8f5c8690486cb1275652"
+  },
+  {
+    "path": "src/main/resources/db/migration/V8__week14_repair_permissions.sql",
+    "unchanged": true,
+    "sha256": "70ee586f8a9a508494938748c887c8321077a50b6ada6b02520146c9850324c2"
+  },
+  {
+    "path": "src/main/resources/db/migration/V9__week15_sales_permissions.sql",
+    "unchanged": true,
+    "sha256": "9e84424796b5504a1479c11bb69bf75a24dd96387fc2799900a6a5d3cb2057f4"
+  },
+  {
+    "path": "src/main/resources/dev/db/migration/V1_1__dev_sample_data.sql",
+    "unchanged": true,
+    "sha256": "7254e701e52d757f8ecde1a5455c938108b09fecdae849a2e4ed03e075853d6f"
+  },
+  {
+    "path": "src/main/resources/dev/db/migration/V4_1__week10_reference_data.sql",
+    "unchanged": true,
+    "sha256": "af4a7dbe11df5cdceefd7bd1360c32f10de6418c4b91fb53e36ba7d1ce1450b2"
+  },
+  {
+    "path": "src/main/resources/dev/db/migration/V5_1__week11_demo_devices.sql",
+    "unchanged": true,
+    "sha256": "330d1816f65227a23ae26c4b057bd7157df665bf39550cdbdc61020258967087"
+  }
+]

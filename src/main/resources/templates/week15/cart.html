@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Giỏ hàng | TIVAREK</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week15.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body class="w23-order-page"><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header th:replace="~{week15/fragments/nav :: nav}"></header>
+<main id="main-content" tabindex="-1" class="wrap w23-order-main">
+  <nav class="w23-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/}">Trang chủ</a><span aria-hidden="true">/</span><span>Giỏ hàng</span></nav>
+  <div class="w23-order-heading">
+    <div><span class="w23-label">TIVAREK STORE</span><h1>Giỏ hàng của bạn</h1><p>Kiểm tra lại số lượng và giá tham khảo trước khi gửi đơn.</p></div>
+    <a class="w23-back-to-shop" th:href="@{/san-pham}">← Tiếp tục xem sản phẩm</a>
+  </div>
+  <div th:if="${success}" class="notice success" role="status" th:text="${success}"></div>
+  <div th:if="${failure}" class="notice error" role="alert" th:text="${failure}"></div>
+
+  <section class="w23-empty-cart" th:if="${#lists.isEmpty(cart.lines)}" aria-labelledby="empty-cart-heading">
+    <span aria-hidden="true">▣</span>
+    <h2 id="empty-cart-heading">Giỏ hàng đang trống</h2>
+    <p>Khám phá các thiết bị và phụ kiện đang có tại TIVAREK để bắt đầu lựa chọn.</p>
+    <a class="button" th:href="@{/san-pham}">Khám phá sản phẩm <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <div class="w23-cart-layout" th:unless="${#lists.isEmpty(cart.lines)}">
+    <section class="box w23-cart-list" aria-labelledby="cart-list-title">
+      <div class="w23-cart-card-heading"><h2 id="cart-list-title">Mặt hàng đã chọn</h2><span th:text="${#lists.size(cart.lines)} + ' dòng sản phẩm'">0 dòng</span></div>
+      <div class="table-scroll">
+        <table class="w23-cart-table">
+          <thead><tr><th scope="col">Sản phẩm</th><th scope="col">Đơn giá</th><th scope="col">Số lượng</th><th scope="col">Thành tiền</th></tr></thead>
+          <tbody>
+          <tr th:each="l : ${cart.lines}">
+            <td>
+              <div class="w23-cart-product">
+                <span class="w23-cart-mark" aria-hidden="true">▣</span>
+                <div><strong th:text="${l.name}">Tên sản phẩm</strong>
+                  <small th:text="${l.code} + ' · ' + ${l.kind == 'DEVICE' ? 'Máy riêng lẻ' : 'Hàng số lượng'}">Mã hàng</small>
+                  <span class="w23-cart-stock" th:text="'Tồn khả dụng: ' + ${l.available}">Tồn khả dụng</span>
+                </div>
+              </div>
+            </td>
+            <td class="money" th:text="${#numbers.formatDecimal(l.unitPrice,1,'POINT',0,'COMMA')} + ' đ'">0 đ</td>
+            <td>
+              <form class="w23-quantity-form" method="post" th:action="@{/gio-hang/update}">
+                <input type="hidden" name="kind" th:value="${l.kind}">
+                <input type="hidden" name="id" th:value="${l.id}">
+                <label><span class="w23-visually-hidden">Số lượng</span><input type="number" min="0" th:max="${l.kind == 'DEVICE' ? 1 : 10000}" name="quantity" th:value="${l.quantity}" required aria-label="Số lượng"></label>
+                <button class="w23-quantity-save" type="submit">Lưu</button>
+              </form>
+              <small class="w23-cart-hint">Nhập 0 để bỏ khỏi giỏ</small>
+            </td>
+            <td class="money w23-line-total" th:text="${#numbers.formatDecimal(l.total,1,'POINT',0,'COMMA')} + ' đ'">0 đ</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <aside class="box w23-cart-summary" aria-labelledby="cart-summary-title">
+      <span class="w23-label">ĐƠN HÀNG DỰ KIẾN</span>
+      <h2 id="cart-summary-title">Tóm tắt giỏ hàng</h2>
+      <p class="w23-cart-price-label">Tạm tính</p>
+      <p class="w23-cart-grand-total" th:text="${#numbers.formatDecimal(cart.total,1,'POINT',0,'COMMA')} + ' đ'">0 đ</p>
+      <p class="w23-cart-notice">Giá và số lượng thực tế sẽ được kiểm tra lại khi tạo và xác nhận đơn. Chưa thu tiền trực tuyến.</p>
+      <a class="button w23-cart-checkout" th:href="@{/thanh-toan}">Tiến hành đặt hàng <span aria-hidden="true">↗</span></a>
+      <form method="post" th:action="@{/gio-hang/clear}" data-w23-submit-lock>
+        <button class="w23-clear-cart" type="submit">Xóa toàn bộ giỏ hàng</button>
+      </form>
+      <div class="w23-cart-help"><strong>Cần xác nhận tình trạng máy?</strong><a href="tel:+84335135549">Gọi 0335 135 549</a></div>
+    </aside>
+  </div>
+</main>
+<footer class="w23-simple-footer">TIVAREK · Quảng Ngãi · Tận tâm từng thiết bị. An tâm từng khách hàng.</footer>
+</body>
+</html>

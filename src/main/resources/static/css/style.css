@@ -1,7 +1,7 @@
 :root {
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --dark: #0f172a;
+    --primary: #d8753c;
+    --primary-dark: #ae562a;
+    --dark: #123047;
     --text: #475569;
     --background: #f8fafc;
     --white: #ffffff;
@@ -82,8 +82,8 @@ nav a:hover {
 .hero {
     background: linear-gradient(
             135deg,
-            #0f172a,
-            #172554
+            #0d2638,
+            #163e55
     );
 
     color: white;
@@ -91,7 +91,7 @@ nav a:hover {
 }
 
 .eyebrow {
-    color: #60a5fa;
+    color: #f6ab7c;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 2px;
@@ -105,7 +105,7 @@ nav a:hover {
 }
 
 .hero h1 span {
-    color: #60a5fa;
+    color: #f6ab7c;
 }
 
 .hero p {
@@ -268,7 +268,7 @@ nav a:hover {
 /* CONTACT */
 
 .contact-section {
-    background: #1e293b;
+    background: #133449;
     color: white;
     text-align: center;
     padding: 70px 0;
@@ -292,7 +292,7 @@ nav a:hover {
 /* FOOTER */
 
 .footer {
-    background: #0f172a;
+    background: #102b3e;
     color: #94a3b8;
     padding: 25px 0;
     font-size: 13px;
@@ -342,3 +342,17 @@ nav a:hover {
         text-align: center;
     }
 }
+
+/* Brand TIVAREK - tuần 18 */
+.logo { display: inline-flex; align-items: center; flex-shrink: 0; }
+.logo img { display: block; width: min(230px, 46vw); height: auto; }
+.navbar { gap: 22px; }
+.navbar nav { gap: clamp(9px, 1.2vw, 19px); flex-wrap: wrap; justify-content: flex-end; }
+.contact-methods { margin: 28px auto 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.contact-chip { display: inline-block; padding: 11px 16px; background: #fff; color: #123047; border-radius: 10px; font-weight: 750; overflow-wrap: anywhere; }
+.contact-chip:hover { background: #ffe4d2; }
+.contact-address { margin-top: 14px; }
+.brand-slogan { margin: 18px auto 0; font-style: italic; }
+.brand-card-preview { display: block; width: min(100%, 760px); height: auto; border-radius: 14px; margin: 28px auto 0; box-shadow: 0 15px 35px #0003; }
+.footer a:hover { color: #ffb583; }
+@media (max-width: 950px) { .navbar { flex-direction: column; padding: 14px 0; } .navbar nav { justify-content: center; } }

@@ -1,0 +1,8 @@
+<!doctype html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đơn của tôi — TIVAREK</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week15.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+</head><body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header th:replace="~{week15/fragments/nav :: nav}"></header><main id="main-content" tabindex="-1" class="wrap"><h1>Đơn hàng của tôi</h1><p class="lead">Chỉ những đơn liên kết với tài khoản khách hàng đang đăng nhập mới xuất hiện ở đây.</p>
+<section class="box"><div class="table-scroll"><table><thead><tr><th>Mã đơn</th><th>Trạng thái</th><th>Người nhận</th><th>Ngày đặt (Việt Nam)</th><th></th></tr></thead><tbody>
+<tr th:each="o:${orders}"><td th:text="${o.OrderCode}"></td><td><span class="status" th:text="${o.Status}"></span></td><td th:text="${o.RecipientName}"></td><td th:text="${o.OrderedLocal}"></td><td><a th:href="@{/account/orders/{code}(code=${o.OrderCode})}">Xem chi tiết</a></td></tr>
+<tr th:if="${#lists.isEmpty(orders)}"><td colspan="5">Chưa có đơn trong tài khoản này. <a th:href="@{/san-pham}">Mua sắm</a></td></tr>
+</tbody></table></div></section></main></body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chi tiết bảo hành — TIVAREK</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week16.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head><body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a><header class="w16-header"><a class="brand" th:href="@{/}">TIVAREK</a><nav><a th:href="@{/tra-cuu-bao-hanh}">Tra cứu phiếu khác</a></nav></header>
+<main id="main-content" tabindex="-1" class="w16-shell"><p class="eyebrow">PHIẾU ĐÃ XÁC MINH</p><h1 th:text="${warranty.WarrantyCode}">BH-...</h1>
+<div class="w16-grid"><section class="panel"><h2>Thông tin bảo hành</h2><dl class="details">
+  <div><dt>Sản phẩm / dịch vụ</dt><dd th:text="${warranty.Description}"></dd></div>
+  <div><dt>Nguồn</dt><dd th:text="${warranty.SourceType == 'SALE' ? 'Đơn bán ' + warranty.OrderCode : 'Phiếu sửa ' + warranty.TicketCode}"></dd></div>
+  <div><dt>Chính sách</dt><dd th:text="${warranty.PolicyName}"></dd></div>
+  <div><dt>Bắt đầu (giờ Việt Nam)</dt><dd th:text="${warranty.StartLocal}"></dd></div>
+  <div><dt>Kết thúc (giờ Việt Nam)</dt><dd th:text="${warranty.EndLocal}"></dd></div>
+  <div><dt>Trạng thái</dt><dd><span class="pill" th:text="${warranty.EffectiveStatus}"></span></dd></div>
+  <div><dt>Số lượng đủ điều kiện tối đa</dt><dd th:text="${warranty.Quantity - warranty.ReturnedQuantity}"></dd></div>
+</dl><h3>Điều khoản đã cam kết</h3><p class="terms" th:text="${warranty.TermsSnapshot}"></p></section>
+<section class="panel"><h2>Yêu cầu bảo hành</h2>
+  <p th:if="${warranty.EffectiveStatus != 'ACTIVE'}" class="alert bad">Phiếu không còn hiệu lực để gửi yêu cầu mới.</p>
+  <form th:if="${warranty.EffectiveStatus == 'ACTIVE' and warranty.Quantity > warranty.ReturnedQuantity}" th:action="@{/bao-hanh/yeu-cau}" method="post" class="w16-form">
+    <input type="hidden" name="code" th:value="${code}"><input type="hidden" name="token" th:value="${token}">
+    <label>Số lượng cần bảo hành<input name="quantity" type="number" value="1" min="1" th:max="${warranty.Quantity - warranty.ReturnedQuantity}" required></label>
+    <label>Mô tả lỗi<textarea name="problem" maxlength="2000" rows="5" required placeholder="Thiết bị bị lỗi gì? Xuất hiện từ khi nào?"></textarea></label>
+    <button class="button">Gửi yêu cầu</button>
+  </form><h3>Lịch sử yêu cầu</h3>
+  <p th:if="${#lists.isEmpty(warranty.claims)}" class="muted">Chưa có yêu cầu.</p>
+  <ul class="item-list"><li th:each="c:${warranty.claims}"><strong th:text="${c.ClaimCode}"></strong><span class="pill" th:text="${c.Status}"></span><small th:text="${c.ClaimedAt}"></small><p th:if="${c.Resolution}" th:text="${c.Resolution}"></p></li></ul>
+</section></div></main></body></html>

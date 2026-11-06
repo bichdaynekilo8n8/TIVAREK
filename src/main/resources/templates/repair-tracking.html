@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Tra cứu sửa chữa | TIVAREK</title>
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/workflow.css}">
+  <script defer th:src="@{/js/week23-forms.js}"></script>
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body class="w23-repair-page"><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="wf-header">
+    <a class="wf-logo" th:href="@{/}">TIVAREK<span class="w23-wf-caption"> / REPAIR</span></a>
+    <nav aria-label="Điều hướng dịch vụ"><a th:href="@{/san-pham}">Sản phẩm</a><a th:href="@{/sua-chua}">Đăng ký sửa chữa</a><a th:href="@{/tra-cuu-bao-hanh}">Bảo hành</a><a th:href="@{/login}">Đăng nhập</a></nav>
+  </header>
+  <main id="main-content" tabindex="-1" class="wf-shell w23-repair-shell">
+    <nav class="w23-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/}">Trang chủ</a><span aria-hidden="true">/</span><span>Tra cứu sửa chữa</span></nav>
+    <div class="w23-repair-heading"><span class="w23-label">THEO DÕI TIẾN ĐỘ</span><h1>Mỗi bước sửa chữa,<br><span>bạn đều có thể tra cứu.</span></h1><p>Nhập chính xác mã phiếu và mã tra cứu được cấp khi cửa hàng tiếp nhận thiết bị.</p></div>
+    <div th:if="${failure}" class="wf-alert wf-error" role="alert" th:text="${failure}"></div>
+    <div class="w23-tracking-layout">
+      <section class="wf-card w23-repair-form-panel" aria-labelledby="tracking-title">
+        <span class="w23-form-step">TRA CỨU AN TOÀN</span><h2 id="tracking-title">Thông tin phiếu sửa</h2>
+        <form class="wf-form w23-form" th:action="@{/tra-cuu-sua-chua}" method="post" data-w23-submit-lock>
+          <label for="track-code">Mã phiếu sửa chữa <span aria-hidden="true">*</span></label>
+          <input id="track-code" name="code" pattern="REP-[A-Fa-f0-9]{24}" maxlength="28" placeholder="REP-..." spellcheck="false" autocomplete="off" required>
+          <small class="w23-field-help">Mã phiếu bắt đầu bằng REP-.</small>
+          <label for="track-token">Mã bảo mật tra cứu <span aria-hidden="true">*</span></label>
+          <input id="track-token" name="token" pattern="[A-Fa-f0-9]{48}" maxlength="48" spellcheck="false" autocomplete="off" required>
+          <small class="w23-field-help">Nhập mã bảo mật 48 ký tự được cung cấp lúc tiếp nhận.</small>
+          <button class="w23-wide-submit" type="submit">Xem tiến độ sửa chữa <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="wf-note">Vì quyền riêng tư, chỉ các ghi chú đã được công khai mới hiển thị. Không chia sẻ mã bảo mật với người khác.</p>
+      </section>
+      <section class="wf-card w23-tracking-result" th:if="${ticket != null}" aria-labelledby="tracking-result-title">
+        <span class="w23-form-step">THÔNG TIN PHIẾU</span>
+        <h2 id="tracking-result-title">Mã <span th:text="${ticket.TicketCode}">REP-...</span></h2>
+        <p class="w23-status-line">Trạng thái hiện tại:
+          <strong class="w23-status-pill" th:text="${repairStatusLabels[ticket.Status] ?: ticket.Status}">Đang kiểm tra</strong>
+        </p>
+        <h3>Nhật ký tiến độ</h3>
+        <ol class="wf-steps w23-public-timeline">
+          <li th:each="e : ${ticket.events}">
+            <strong th:text="${repairStatusLabels[e.ToStatus] ?: e.ToStatus}">Đã tiếp nhận</strong>
+            <p th:text="${e.Note}">Nội dung cập nhật</p>
+            <small th:text="${e.OccurredAt}"></small>
+          </li>
+          <li th:if="${#lists.isEmpty(ticket.events)}"><p>Chưa có cập nhật công khai.</p></li>
+        </ol>
+      </section>
+      <aside class="w23-process-card w23-tracking-info" th:unless="${ticket != null}">
+        <span class="w23-label">BẢO MẬT THÔNG TIN</span>
+        <h2>Bạn chưa có mã phiếu?</h2>
+        <p>Mã phiếu và mã tra cứu chỉ được cấp sau khi thiết bị đã được tiếp nhận chính thức.</p>
+        <a class="w23-text-link" th:href="@{/sua-chua}">Gửi yêu cầu sửa chữa <span aria-hidden="true">↗</span></a>
+        <div class="w23-help-line">Hỗ trợ: <a href="tel:+84335135549">0335 135 549</a></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="w23-simple-footer">TIVAREK · Điện tử &amp; sửa chữa · Quảng Ngãi</footer>
+</body>
+</html>

@@ -1,219 +1,146 @@
-<!DOCTYPE html>
-<html lang="vi"
-      xmlns:th="http://www.thymeleaf.org">
-
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title th:text="${pageTitle}">
-        TIVAREK
-    </title>
-
-    <link rel="stylesheet"
-          th:href="@{/css/style.css}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="TIVAREK tại Quảng Ngãi: tìm mua TV, laptop, máy tính, phụ kiện cũ và đăng ký sửa chữa. Giá, tình trạng thiết bị và bảo hành minh bạch.">
+  <meta name="theme-color" content="#111e2d">
+  <title th:text="${pageTitle}">TIVAREK — Điện tử &amp; sửa chữa tại Quảng Ngãi</title>
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/storefront.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+<meta name="robots" th:content="${seoIndexable ? 'index,follow' : 'noindex,follow'}">
+<link rel="canonical" th:if="${seoCanonical != null}" th:href="${seoCanonical}">
+<meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="TIVAREK">
+<meta property="og:type" content="website"><meta property="og:url" th:if="${seoCanonical != null}" th:content="${seoCanonical}">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "TIVAREK", "telephone": "+84335135549", "email": "tivarek@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "Sơn Dung (cũ), xã Sơn Tây", "addressRegion": "Quảng Ngãi", "addressCountry": "VN"}, "areaServed": "Quảng Ngãi"}</script>
 </head>
-
-<body>
-
-<header class="header">
-    <div class="container navbar">
-
-        <a th:href="@{/}" class="logo">
-            TIVAREK<span>.</span>
-        </a>
-
-        <nav>
-            <a href="#home">Trang chủ</a>
-            <a href="#products">Sản phẩm</a>
-            <a href="#services">Dịch vụ</a>
-            <a href="#contact">Liên hệ</a>
-        </nav>
-
-    </div>
-</header>
-
-<main>
-
-    <section class="hero" id="home">
-        <div class="container">
-
-            <span class="eyebrow">
-                TIVAREK ELECTRONICS & REPAIR
-            </span>
-
-            <h1>
-                Công nghệ chất lượng.
-                <br>
-                <span>Dịch vụ tận tâm.</span>
-            </h1>
-
-            <p>
-                TIVAREK cung cấp thiết bị điện tử,
-                máy tính, phụ kiện và dịch vụ
-                sửa chữa tại Quảng Ngãi.
-            </p>
-
-            <div class="hero-actions">
-                <a href="#products"
-                   class="btn btn-primary">
-                    Khám phá sản phẩm
-                </a>
-
-                <a href="#services"
-                   class="btn btn-outline">
-                    Dịch vụ sửa chữa
-                </a>
-            </div>
-
+<body class="w23-home">
+  <a class="w23-skip" href="#main-content">Bỏ qua điều hướng</a>
+  <div class="w23-announcement">
+    <div class="sf-container"><span>ĐIỆN TỬ &amp; SỬA CHỮA TẠI QUẢNG NGÃI</span>
+      <a href="tel:+84335135549">Tư vấn: 0335 135 549 <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <header th:replace="~{storefront/fragments/header :: header}"></header>
+  <main id="main-content" tabindex="-1">
+    <section class="w23-hero" aria-labelledby="hero-title">
+      <div class="sf-container w23-hero-layout">
+        <div class="w23-hero-copy">
+          <p class="w23-overline"><span class="w23-line"></span> TIVAREK ELECTRONICS &amp; REPAIR</p>
+          <h1 id="hero-title">Thiết bị phù hợp.<br><span>Chăm sóc tận tâm.</span></h1>
+          <p class="w23-hero-description">Tìm chiếc laptop, TV hay bộ máy tính phù hợp với ngân sách của bạn. Cần sửa chữa? TIVAREK luôn sẵn sàng lắng nghe và tư vấn rõ ràng trước khi nhận máy.</p>
+          <div class="w23-hero-actions">
+            <a class="w23-button w23-button-primary" th:href="@{/san-pham}">Khám phá sản phẩm <span aria-hidden="true">↗</span></a>
+            <a class="w23-button w23-button-ghost" th:href="@{/sua-chua}">Đăng ký sửa chữa <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="w23-hero-points" aria-label="Cam kết thông tin">
+            <span><span aria-hidden="true">✓</span> Tình trạng rõ ràng</span>
+            <span><span aria-hidden="true">✓</span> Tư vấn trực tiếp</span>
+            <span><span aria-hidden="true">✓</span> Chính sách minh bạch</span>
+          </div>
         </div>
+        <div class="w23-hero-visual" aria-hidden="true">
+          <div class="w23-orbit w23-orbit-one"></div>
+          <div class="w23-orbit w23-orbit-two"></div>
+          <div class="w23-mock-monitor"><div class="w23-screen"><span class="w23-screen-glow"></span><span class="w23-screen-logo">T<span>•</span>V</span><small>ELECTRONICS &amp; REPAIR</small></div><div class="w23-monitor-neck"></div><div class="w23-monitor-base"></div></div>
+          <div class="w23-floating-card w23-float-top"><span class="w23-card-icon">✧</span><span><strong>Thiết bị được mô tả rõ</strong><small>Hình ảnh · thông số · tình trạng</small></span></div>
+          <div class="w23-floating-card w23-float-bottom"><span class="w23-card-icon">↗</span><span><strong>Sửa chữa tại Quảng Ngãi</strong><small>Tiếp nhận · báo giá · tra cứu</small></span></div>
+          <div class="w23-hero-caption">TIVAREK / QUẢNG NGÃI / 2026</div>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="services">
-        <div class="container">
-
-            <div class="section-heading">
-                <span class="eyebrow">
-                    DỊCH VỤ TIVAREK
-                </span>
-
-                <h2>Chúng tôi có thể giúp gì cho bạn?</h2>
-            </div>
-
-            <div class="service-grid">
-
-                <div class="service-card">
-                    <div class="service-icon">📺</div>
-                    <h3>Thiết bị điện tử</h3>
-                    <p>
-                        Tivi, đầu đĩa và các thiết bị
-                        điện tử phù hợp nhu cầu gia đình.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Máy tính và phụ kiện</h3>
-                    <p>
-                        Laptop, máy tính để bàn,
-                        linh kiện và phụ kiện đã qua sử dụng.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🛠️</div>
-                    <h3>Sửa chữa thiết bị</h3>
-                    <p>
-                        Tiếp nhận, kiểm tra và tư vấn
-                        phương án sửa chữa phù hợp.
-                    </p>
-                </div>
-
-            </div>
-        </div>
+    <section class="w23-benefits" aria-label="Trải nghiệm tại TIVAREK">
+      <div class="sf-container w23-benefits-grid">
+        <div><span class="w23-benefit-icon" aria-hidden="true">01</span><p><strong>Thông tin rõ ràng</strong><small>Giá và tình trạng từ hệ thống cửa hàng</small></p></div>
+        <div><span class="w23-benefit-icon" aria-hidden="true">02</span><p><strong>Chọn hàng dễ dàng</strong><small>Tìm kiếm, lọc giá và loại thiết bị</small></p></div>
+        <div><span class="w23-benefit-icon" aria-hidden="true">03</span><p><strong>Theo dõi sửa chữa</strong><small>Tra cứu tiến độ bằng mã bảo mật</small></p></div>
+      </div>
     </section>
 
-    <section class="section products-section"
-             id="products">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span class="eyebrow">
-                    TIVAREK STORE
-                </span>
-
-                <h2>Sản phẩm mới cập nhật</h2>
-
-                <p>
-                    Các sản phẩm hiện có tại cửa hàng.
-                </p>
-
-            </div>
-
-            <div class="empty-state"
-                 th:if="${#lists.isEmpty(products)}">
-
-                <h3>Đang cập nhật sản phẩm</h3>
-
-                <p>
-                    Danh sách sản phẩm sẽ được
-                    hiển thị tại đây.
-                </p>
-
-            </div>
-
-            <div class="product-grid">
-
-                <div class="product-card"
-                     th:each="product : ${products}">
-
-                    <div class="product-image">
-                        <span>Thiết bị điện tử</span>
-                    </div>
-
-                    <div class="product-info">
-
-                        <span class="product-label">
-                            TIVAREK
-                        </span>
-
-                        <h3 th:text="${product.name()}">
-                            Tên sản phẩm
-                        </h3>
-
-                        <p class="price"
-                           th:text="${#numbers.formatDecimal(product.price(), 1, 'POINT', 0, 'COMMA')} + ' đ'">
-                            0 đ
-                        </p>
-
-                    </div>
-                </div>
-
-            </div>
-
+    <section class="w23-section" id="categories" aria-labelledby="categories-title">
+      <div class="sf-container">
+        <div class="w23-section-heading"><div><span class="w23-label">DANH MỤC TIVAREK</span><h2 id="categories-title">Bạn đang tìm thiết bị gì?</h2><p>Khám phá từng nhóm sản phẩm được cửa hàng cập nhật.</p></div><a class="w23-text-link" th:href="@{/san-pham}">Tất cả sản phẩm <span aria-hidden="true">↗</span></a></div>
+        <div class="w23-category-grid">
+          <a class="w23-category-card" th:href="@{/san-pham(q='TV')}"><span class="w23-category-symbol" aria-hidden="true">▣</span><span><strong>TV &amp; màn hình</strong><small>Giải trí và làm việc</small></span><b aria-hidden="true">↗</b></a>
+          <a class="w23-category-card" th:href="@{/san-pham(q='laptop')}"><span class="w23-category-symbol" aria-hidden="true">▰</span><span><strong>Laptop</strong><small>Học tập và công việc</small></span><b aria-hidden="true">↗</b></a>
+          <a class="w23-category-card" th:href="@{/san-pham(q='máy tính')}"><span class="w23-category-symbol" aria-hidden="true">⌘</span><span><strong>Máy tính để bàn</strong><small>Thiết bị và linh kiện</small></span><b aria-hidden="true">↗</b></a>
+          <a class="w23-category-card" th:href="@{/san-pham(type='bulk')}"><span class="w23-category-symbol" aria-hidden="true">✳</span><span><strong>Phụ kiện</strong><small>Kết nối và nâng cấp</small></span><b aria-hidden="true">↗</b></a>
         </div>
+      </div>
     </section>
 
-    <section class="contact-section" id="contact">
-
-        <div class="container">
-
-            <h2>
-                Cần tư vấn thiết bị hoặc sửa chữa?
-            </h2>
-
-            <p>
-                TIVAREK luôn sẵn sàng hỗ trợ
-                khách hàng tại Quảng Ngãi.
-            </p>
-
-            <span class="contact-note">
-                Thông tin liên hệ chính thức
-                sẽ được cập nhật.
-            </span>
-
+    <section class="w23-section w23-products-section" id="products" aria-labelledby="featured-title">
+      <div class="sf-container">
+        <div class="w23-section-heading"><div><span class="w23-label">TỪ KHO CỬA HÀNG</span><h2 id="featured-title">Sản phẩm vừa cập nhật</h2><p>Xem ảnh thật (khi có), giá bán và khả năng đặt hàng từ dữ liệu hiện tại.</p></div><a class="w23-text-link" th:href="@{/san-pham}">Xem cửa hàng <span aria-hidden="true">↗</span></a></div>
+        <div class="w23-featured-grid" th:if="${!#lists.isEmpty(featured)}">
+          <article class="w23-featured-card" th:each="item : ${featured}">
+            <a class="w23-featured-image" th:href="${item.detailUrl}" th:aria-label="'Xem ' + ${item.name}">
+              <img th:if="${item.imageUrl != null}" th:src="${item.imageUrl}" th:alt="${item.name}" loading="lazy" width="390" height="280" decoding="async">
+              <span th:unless="${item.imageUrl != null}" class="w23-featured-placeholder"><span aria-hidden="true">▣</span>Đang cập nhật hình ảnh</span>
+              <span class="w23-featured-badge" th:text="${item.device ? 'Thiết bị riêng lẻ' : 'Hàng số lượng'}">Thiết bị</span>
+            </a>
+            <div class="w23-featured-copy">
+              <small th:text="${item.brand == null ? item.category : item.brand + ' · ' + item.category}">Thiết bị điện tử</small>
+              <h3><a th:href="${item.detailUrl}" th:text="${item.name}">Sản phẩm</a></h3>
+              <p class="w23-featured-price" th:text="${#numbers.formatDecimal(item.price,1,'POINT',0,'COMMA')} + ' đ'">0 đ</p>
+              <div class="w23-featured-footer">
+                <span th:classappend="${item.inStock ? ' is-available' : ' is-unavailable'}"
+                      th:text="${item.inStock ? 'Còn hàng' : 'Tạm hết hàng'}">Còn hàng</span>
+                <a th:href="${item.detailUrl}">Chi tiết <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </article>
         </div>
-
+        <div th:if="${#lists.isEmpty(featured)}" class="w23-empty">
+          <span class="w23-empty-icon" aria-hidden="true">✦</span>
+          <h3>Danh sách sản phẩm đang được cập nhật</h3>
+          <p>Liên hệ trực tiếp để được tư vấn các thiết bị hiện có tại cửa hàng.</p>
+          <a class="w23-button w23-button-dark" th:href="@{/san-pham}">Xem toàn bộ danh mục</a>
+        </div>
+        <!-- Preserve the original model data for regression tests and customers when inventory is not yet published. -->
+        <div class="w23-reference-products" th:if="${#lists.isEmpty(featured) and !#lists.isEmpty(products)}">
+          <h3>Các mẫu sản phẩm tham khảo</h3>
+          <div class="w23-reference-grid">
+            <div th:each="product : ${products}">
+              <strong th:text="${product.name()}">Sản phẩm</strong>
+              <span th:text="'Giá tham khảo: ' + ${#numbers.formatDecimal(product.price(),1,'POINT',0,'COMMA')} + ' đ'">0 đ</span>
+            </div>
+          </div>
+          <p>Giá tham khảo không đồng nghĩa với hàng sẵn có; vui lòng kiểm tra trước khi đặt.</p>
+        </div>
+      </div>
     </section>
 
-</main>
+    <section class="w23-section" id="services" aria-labelledby="service-title">
+      <div class="sf-container w23-service-layout">
+        <div class="w23-service-visual"><span class="w23-service-watermark" aria-hidden="true">T</span><span class="w23-service-serial">TIVAREK / SERVICE / 01</span><div><span class="w23-service-circle" aria-hidden="true">✳</span><h2>Sự cố thiết bị?<br>Hãy để chúng tôi lắng nghe.</h2></div></div>
+        <div class="w23-service-copy"><span class="w23-label">DỊCH VỤ SỬA CHỮA</span><h2 id="service-title">Từ tiếp nhận đến bàn giao, mọi bước đều rõ ràng.</h2><p>Gửi thông tin lỗi trước khi mang máy đến. Khi đã có phiếu tiếp nhận, bạn có thể tra cứu tiến độ qua mã được cấp.</p>
+          <ol class="w23-service-steps">
+            <li><span>01</span><div><strong>Đăng ký yêu cầu</strong><small>Cho cửa hàng biết thiết bị và tình trạng lỗi</small></div></li>
+            <li><span>02</span><div><strong>Kiểm tra và báo giá</strong><small>Khách xác nhận báo giá trước khi sửa theo quy trình</small></div></li>
+            <li><span>03</span><div><strong>Theo dõi và nhận máy</strong><small>Tra cứu tiến độ, bàn giao và thông tin bảo hành</small></div></li>
+          </ol>
+          <div class="w23-service-actions"><a class="w23-button w23-button-primary" th:href="@{/sua-chua}">Đăng ký sửa chữa <span aria-hidden="true">↗</span></a><a class="w23-text-link" th:href="@{/tra-cuu-sua-chua}">Tra cứu phiếu sửa →</a></div>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-    <div class="container">
+    <section class="w23-section w23-trust-section" aria-labelledby="trust-title">
+      <div class="sf-container w23-trust-layout">
+        <div><span class="w23-label">VỀ TIVAREK</span><h2 id="trust-title">Sự an tâm bắt đầu từ thông tin trung thực.</h2></div>
+        <div><p>Mỗi thiết bị cũ có câu chuyện và tình trạng riêng. TIVAREK ưu tiên mô tả đúng hiện trạng, giải thích rõ khả năng sử dụng và thông tin bảo hành để bạn tự tin lựa chọn.</p>
+          <a class="w23-text-link" th:href="@{/tra-cuu-bao-hanh}">Tra cứu bảo hành <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
 
-        <p>
-            © 2026 TIVAREK.
-            Electronics & Repair.
-        </p>
-
-        <p>Quảng Ngãi, Việt Nam</p>
-
-    </div>
-</footer>
-
+    <section class="w23-contact" id="contact" aria-labelledby="contact-title">
+      <div class="sf-container w23-contact-inner"><div><span class="w23-label">SẴN SÀNG HỖ TRỢ</span><h2 id="contact-title">Bạn cần tư vấn thêm?</h2><p>Trao đổi với TIVAREK để chọn thiết bị phù hợp hoặc mô tả lỗi đang gặp.</p><small>Sơn Dung (cũ), xã Sơn Tây, Quảng Ngãi</small></div>
+        <div class="w23-contact-actions"><a class="w23-button w23-button-primary" href="tel:+84335135549">Gọi 0335 135 549 <span aria-hidden="true">↗</span></a><a class="w23-button w23-button-ghost" href="https://zalo.me/0335135549" target="_blank" rel="noopener noreferrer">Nhắn Zalo <span aria-hidden="true">↗</span></a><a href="mailto:tivarek@gmail.com">tivarek@gmail.com</a></div>
+      </div>
+    </section>
+  </main>
+  <footer th:replace="~{storefront/fragments/footer :: footer}"></footer>
 </body>
 </html>

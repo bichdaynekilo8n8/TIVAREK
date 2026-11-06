@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TIVAREK — Tài khoản &amp; quản trị</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/app.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header class="topbar">
+  <a class="brand" th:href="@{/}">TIVAREK<span>ĐIỆN TỬ &amp; SỬA CHỮA</span></a>
+  <div class="top-actions"><a th:href="@{/}">Về cửa hàng</a><a th:href="@{/doi-mat-khau}">Đổi mật khẩu</a><span class="user" th:text="${username}"></span><form th:action="@{/logout}" method="post"><button class="button secondary">Đăng xuất</button></form></div>
+</header>
+<main id="main-content" tabindex="-1" class="workspace narrow"><div class="page-heading"><div><span class="eyebrow">TÀI KHOẢN CỦA BẠN</span><h1>Thông tin khách hàng</h1><p class="muted">Hồ sơ được liên kết với tài khoản đang đăng nhập.</p></div></div>
+<section class="panel">
+  <p><a th:href="@{/account/orders}" class="button">Xem đơn mua hàng của tôi</a></p>
+  <p><a th:href="@{/account/repairs}" class="button">Xem phiếu sửa chữa &amp; báo giá của tôi</a></p>
+  <p><a th:href="@{/account/warranties}" class="button">Xem phiếu bảo hành của tôi</a></p>
+  <dl class="profile"><div><dt>Mã khách hàng</dt><dd class="code" th:text="${profile.customerCode}"></dd></div><div><dt>Họ tên</dt><dd th:text="${profile.fullName}"></dd></div><div><dt>Số điện thoại</dt><dd th:text="${profile.phone}"></dd></div><div><dt>Email</dt><dd th:text="${profile.email == null ? 'Chưa cung cấp' : profile.email}"></dd></div></dl>
+</section></main></body></html>

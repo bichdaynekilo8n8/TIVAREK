@@ -1,0 +1,9 @@
+{
+  "pages_generator_prefix_and_idempotence": true,
+  "pages_generator_rejects_http": true,
+  "source_pages_has_no_fake_canonical": true,
+  "node_syntax": "passed",
+  "windows_cmd_powershell_runtime": "not_run_on_linux",
+  "browser_runtime": "blocked_socket_operation_not_permitted",
+  "sql_server": "not_available"
+}

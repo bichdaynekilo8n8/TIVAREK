@@ -1,0 +1,527 @@
+[
+  {
+    "path": ".env.example",
+    "kind": "modified",
+    "sha256": "bda03d34dced8f812901b6efc7a545cf1c8ff54a409829180d3589f8a1efbd31"
+  },
+  {
+    "path": ".gitignore",
+    "kind": "modified",
+    "sha256": "849052f34a85c284637aae22f5bf2b8674c3bdaa0500aeead1433cc5b0d8ac93"
+  },
+  {
+    "path": "CHAY_TUAN24.cmd",
+    "kind": "added",
+    "sha256": "233ead1274861e3766c4389f3c3b7c4aae6e0a8744c87325d2d41ca581c46638"
+  },
+  {
+    "path": "KET_QUA_HIEU_NANG_TUAN24.md",
+    "kind": "added",
+    "sha256": "398b93b623bcdcb5bec5d630fd76eebc715a27079637c85b06b8f869117fb1c4"
+  },
+  {
+    "path": "KET_QUA_KIEM_THU_TUAN24.md",
+    "kind": "added",
+    "sha256": "2487cf51aa8dc343ac18d73ac6beec3cf7bb69f4a6e2993f0d480d130e4a3359"
+  },
+  {
+    "path": "KIEM_THU_TUAN24.cmd",
+    "kind": "added",
+    "sha256": "60c85584c9c61696e809568aab699ffd85a339674830e75cc48551eefcb77c42"
+  },
+  {
+    "path": "PHIEU_UAT_TUAN24.md",
+    "kind": "added",
+    "sha256": "102cbc2a2aa7aa6c9985e923d28072509276e370e9362cf9816d1f8cf2efcbaa"
+  },
+  {
+    "path": "TUAN24_HOAN_CHINH.md",
+    "kind": "added",
+    "sha256": "3d115b7723c3704113eeb8dda8aa62be6f3abf9394b71b524fd720378a53171b"
+  },
+  {
+    "path": "docs/assets/tivarek-brand-card.png",
+    "kind": "modified",
+    "sha256": "47975099658e497b9f9ef9e8139e2747e64cb73b358f0ac2fabd9d0d738e57f7"
+  },
+  {
+    "path": "docs/assets/tivarek-icon.png",
+    "kind": "modified",
+    "sha256": "cad9d7564a7c57ca7fbc6c2a4a4ff177459e5e34a7bedb8315d405213bb78fc4"
+  },
+  {
+    "path": "docs/assets/tivarek-wordmark.png",
+    "kind": "modified",
+    "sha256": "058522f5ea2696c3deb683a2f047b47a9623abf5d09837b6fcb816e23a3dcc52"
+  },
+  {
+    "path": "docs/index.html",
+    "kind": "modified",
+    "sha256": "cfb0a6a11851c831e060716fdea0a56fabfb8a8d4eba1f95eed78bf25c8d4059"
+  },
+  {
+    "path": "docs/robots.txt",
+    "kind": "added",
+    "sha256": "28b7136e739c3da6abcfb84c551e2e3c952086c1c2048201c2bea4e9dc9cc531"
+  },
+  {
+    "path": "docs/sitemap.xml",
+    "kind": "added",
+    "sha256": "a78763b02492c37767a7dad05dd1d58c1f7299d4a1f004e9e53f1ca1060403e5"
+  },
+  {
+    "path": "reports/week24/after-http-resource-check.json",
+    "kind": "added",
+    "sha256": "9c337cc518dae9d381dd6e0e5d2310e395178c1fc2b70e3c954eced8f3a522bc"
+  },
+  {
+    "path": "reports/week24/after-http.json",
+    "kind": "added",
+    "sha256": "d704fe86afcf9c6e2782dd6ac5e349f4fac41e3753c3af1d1a0fd3f9e4e04962"
+  },
+  {
+    "path": "reports/week24/asset-metrics.json",
+    "kind": "added",
+    "sha256": "3c4cbaeeba4bdc9509cc8e11073ee68223d5258ebf8876b2fa747cdd97a4dfdf"
+  },
+  {
+    "path": "reports/week24/before-http.json",
+    "kind": "added",
+    "sha256": "2755667a327c88cdaafbb38f80c404ac8bf7b9b3faa15fbbbef6ef54deb02864"
+  },
+  {
+    "path": "reports/week24/maven-clean-verify.log",
+    "kind": "added",
+    "sha256": "f63263573bed874ab7f374eded50ed5b4550d88efc9875209bbb4928108e22dc"
+  },
+  {
+    "path": "reports/week24/migration-checksums.json",
+    "kind": "added",
+    "sha256": "c5cb22de4061cc6b93cef195a821c672be850360cc06bf8bdbfebffa4a416153"
+  },
+  {
+    "path": "reports/week24/script-checks.json",
+    "kind": "added",
+    "sha256": "160f10835635ff924561bd10fc5e1d605821b3000f119e5fffa8fb4b63b3df83"
+  },
+  {
+    "path": "reports/week24/test-summary.json",
+    "kind": "added",
+    "sha256": "7f7de32d4bf984bf5b84a0c6a07a4e42a93013ae5d7c8a0505f3a937ca541717"
+  },
+  {
+    "path": "scripts/build-pages-seo.py",
+    "kind": "added",
+    "sha256": "7a6e25eacab391bae91e77ea1e76b772e543c1ac8f4ba9c8b36d8e5c59dba5ac"
+  },
+  {
+    "path": "scripts/smoke-week24-ui.ps1",
+    "kind": "added",
+    "sha256": "f1568f0ae8864de69e32270af75214346e0e97aef55af8f85f8b4d497527e1c1"
+  },
+  {
+    "path": "scripts/week24-tools/audit-browser.mjs",
+    "kind": "added",
+    "sha256": "9eb644ca33d8458e2f06263c6b22f2c4616e21cac23b052fb831fc9755306f07"
+  },
+  {
+    "path": "scripts/week24-tools/measure-lighthouse.mjs",
+    "kind": "added",
+    "sha256": "44ba4900fa00ae02e3cf1e3ffbf2b8563edc9d1f03ef398fe4ffac88c4004051"
+  },
+  {
+    "path": "scripts/week24-tools/package-lock.json",
+    "kind": "added",
+    "sha256": "5014214197ee3fe0b5128992a3b377b1eb11117e52ef9c78460ac0fd055ef805"
+  },
+  {
+    "path": "scripts/week24-tools/package.json",
+    "kind": "added",
+    "sha256": "59ec1e2bd5ed2939f3d33f70430bff8775ca27610d15ccdb979fbde2d10ecd11"
+  },
+  {
+    "path": "src/main/java/com/tivarek/auth/RegistrationService.java",
+    "kind": "modified",
+    "sha256": "987c9c0f693f66f215deab390586ee5dfaf5d066667ddeaa6cc8023f2690a38a"
+  },
+  {
+    "path": "src/main/java/com/tivarek/config/SecurityConfig.java",
+    "kind": "modified",
+    "sha256": "37491d88b23329e501373a518ced5362f670dc433ed7ee54a7779cba4c3ab2fa"
+  },
+  {
+    "path": "src/main/java/com/tivarek/controller/HomeController.java",
+    "kind": "modified",
+    "sha256": "996818aa54415658cda429fd8dddc63d43e0ae239684701f8b7f25bd90cf2116"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week11/DeviceImageStorage.java",
+    "kind": "modified",
+    "sha256": "9971e5e682850a50935af64a1cacaa2fced0bce922e7ed08b1a893a217089d1f"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week13/StorefrontController.java",
+    "kind": "modified",
+    "sha256": "0e967724b76cd328062e7d9967fc3f336fb37d3f60f9a57fdd0e29ab11aa216d"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week13/StorefrontRepository.java",
+    "kind": "modified",
+    "sha256": "8d304326ef133db51f2c5405fa910082374270dd7f91a16712dc113680696901"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week13/StorefrontService.java",
+    "kind": "modified",
+    "sha256": "cd3db9e1207bd4eb6b826a3a59565610fb3ccdaca69dfa23715c616e7a88bf0e"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week24/PrivacyHeaders.java",
+    "kind": "added",
+    "sha256": "49aa41e96e1349f5b68d6ad2270eba19824da2dbe93a462f3c3d17eb3d6d4931"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week24/PublicSeo.java",
+    "kind": "added",
+    "sha256": "397179e2f38ae0d4ae6c892574dfce3e4c5cd45cc22a5208422b79f8f90a5f6f"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week24/SeoController.java",
+    "kind": "added",
+    "sha256": "9110ecdd342fe93564b150a8cfbe08453b45f14a61c89d6c4a5c67c69ff9449d"
+  },
+  {
+    "path": "src/main/java/com/tivarek/week24/SeoModelAdvice.java",
+    "kind": "added",
+    "sha256": "aafa71009b82585701faa55e04ec456a1be9fc6a0519948782cf97ea7a10f289"
+  },
+  {
+    "path": "src/main/resources/application.properties",
+    "kind": "modified",
+    "sha256": "8eb26eedb5da0f470b612be5367359a0a42c3cc96a9b54b5f1f67b4bb531c4d3"
+  },
+  {
+    "path": "src/main/resources/static/css/app.css",
+    "kind": "modified",
+    "sha256": "f0a37fa41b4a1ddbbe5bd5483681c3b2cfb2daf990d0b1aa3e1df604184a552f"
+  },
+  {
+    "path": "src/main/resources/static/css/storefront.css",
+    "kind": "modified",
+    "sha256": "020ddb465092a5112d6b9faedd3255efec2ca411b8028ae13d9edf52e3f6d7d3"
+  },
+  {
+    "path": "src/main/resources/static/css/style.css",
+    "kind": "modified",
+    "sha256": "dc1c2c9ce6eb94fc66a23edfd0d1415868e1b8a5ef47f34568892694bae07d09"
+  },
+  {
+    "path": "src/main/resources/static/css/week15.css",
+    "kind": "modified",
+    "sha256": "6def76bc3a1a2790ee3f367b06fe265adf0fbc797472d2eaa2acb5f737f7e368"
+  },
+  {
+    "path": "src/main/resources/static/css/week16.css",
+    "kind": "modified",
+    "sha256": "aef5ba2676eaad2f89cb5e92047ff560c140407c8d28188c7e1a9b28d5c83023"
+  },
+  {
+    "path": "src/main/resources/static/css/week17.css",
+    "kind": "modified",
+    "sha256": "0329eecae3b61b4a7295b4d6b39dde0bd7fb686343f3ece498b90067c776dc1f"
+  },
+  {
+    "path": "src/main/resources/static/css/week24.css",
+    "kind": "added",
+    "sha256": "60ab1b261aab95c387fe5501bc4e8b589c36772259556f72b189ec4f8302a24b"
+  },
+  {
+    "path": "src/main/resources/static/css/workflow.css",
+    "kind": "modified",
+    "sha256": "d4161a20ffe249c3f83f4480531bd3b8f1628971fa1e3852e7c0fd7742c6a1e9"
+  },
+  {
+    "path": "src/main/resources/static/images/tivarek-brand-card.png",
+    "kind": "modified",
+    "sha256": "47975099658e497b9f9ef9e8139e2747e64cb73b358f0ac2fabd9d0d738e57f7"
+  },
+  {
+    "path": "src/main/resources/static/images/tivarek-icon.png",
+    "kind": "modified",
+    "sha256": "cad9d7564a7c57ca7fbc6c2a4a4ff177459e5e34a7bedb8315d405213bb78fc4"
+  },
+  {
+    "path": "src/main/resources/static/images/tivarek-wordmark.png",
+    "kind": "modified",
+    "sha256": "058522f5ea2696c3deb683a2f047b47a9623abf5d09837b6fcb816e23a3dcc52"
+  },
+  {
+    "path": "src/main/resources/templates/account.html",
+    "kind": "modified",
+    "sha256": "c236f112042c53e181820df5aa12e57e7901f05f1afbe43c7b8f0fac9ca47167"
+  },
+  {
+    "path": "src/main/resources/templates/admin.html",
+    "kind": "modified",
+    "sha256": "2a7ec9bb4ddc05c94ad96eedc4e564ae4270d8385457e7a0152d1957abc2e371"
+  },
+  {
+    "path": "src/main/resources/templates/auth/change-password.html",
+    "kind": "modified",
+    "sha256": "924086465b380ebc69a210f1dd816301bd3cc37b37542028f5cdeb08f286799b"
+  },
+  {
+    "path": "src/main/resources/templates/catalog-admin.html",
+    "kind": "modified",
+    "sha256": "b22ed5ec6498a85345400373b942eebd743d016476bd1f63cd4a1b51a6c66a6d"
+  },
+  {
+    "path": "src/main/resources/templates/device-detail.html",
+    "kind": "modified",
+    "sha256": "42c10060c90478208f6a1b256b7459bd15fcf58f35049777e647bf6b4f67d894"
+  },
+  {
+    "path": "src/main/resources/templates/device-form.html",
+    "kind": "modified",
+    "sha256": "3d0b81e6c9a82591e3090fc61de88ecca5d9857f7ff3a5c6094dec9189cf0b7a"
+  },
+  {
+    "path": "src/main/resources/templates/devices-admin.html",
+    "kind": "modified",
+    "sha256": "2f07259bc298c07ca2c26ae8ebe174942d2f0098f34c20fa987697fc81d2437c"
+  },
+  {
+    "path": "src/main/resources/templates/error/403.html",
+    "kind": "added",
+    "sha256": "e4ba4999bf5c9aa0566107a1c6415ed24acd85e4f9000b9b308a470647c3f689"
+  },
+  {
+    "path": "src/main/resources/templates/error/404.html",
+    "kind": "added",
+    "sha256": "2eae728b7375b24cf34f074f224e0bf419a637291107eee00c3338cf74c3358d"
+  },
+  {
+    "path": "src/main/resources/templates/error/500.html",
+    "kind": "added",
+    "sha256": "e8b0d5fd52c19ceff0892457218a28eda9d82ca62c76f2adc79039d943e001a5"
+  },
+  {
+    "path": "src/main/resources/templates/home.html",
+    "kind": "modified",
+    "sha256": "af3a5c640a35d42fa9775053d3a6b91f4cef068cc5cf791c03664f0ab187dd5e"
+  },
+  {
+    "path": "src/main/resources/templates/index.html",
+    "kind": "modified",
+    "sha256": "6caa8f63e220cb577f3f47de47cd7576dd2fe4bdcf766502c51794337ab2a160"
+  },
+  {
+    "path": "src/main/resources/templates/login.html",
+    "kind": "modified",
+    "sha256": "dd7f6359f8ca4c49c1f53bd0e99d5fa94f5710705c42682b8c0ffcdecf158abe"
+  },
+  {
+    "path": "src/main/resources/templates/product-form.html",
+    "kind": "modified",
+    "sha256": "71705fe69fa30a0a31a5e1413c7969e2af23ea2e1a59cc6694cce7bbdf583b1a"
+  },
+  {
+    "path": "src/main/resources/templates/products-admin.html",
+    "kind": "modified",
+    "sha256": "f7e138b6f70b3d2691fbfd29029955457bf47c45e4111dc570c413fdcbf4962f"
+  },
+  {
+    "path": "src/main/resources/templates/register.html",
+    "kind": "modified",
+    "sha256": "d5908963e7909d246cd5e8bdf96ea2d58075f48da683a45b1e375e68b79ef774"
+  },
+  {
+    "path": "src/main/resources/templates/repair-account.html",
+    "kind": "modified",
+    "sha256": "2906ea7f1b9bdb0be7f4797b443941594cc8c87dff0329be9b713b63abb3445e"
+  },
+  {
+    "path": "src/main/resources/templates/repair-detail.html",
+    "kind": "modified",
+    "sha256": "4cb6c7a302a36438304a4cad8e8426818d5eec3d5c3faed03bf0d927d28c6f02"
+  },
+  {
+    "path": "src/main/resources/templates/repair-request.html",
+    "kind": "modified",
+    "sha256": "217ccf3f8e682ae15566bcc14faab83542170875f3fb53abf9a6a34d80110ca7"
+  },
+  {
+    "path": "src/main/resources/templates/repair-tracking.html",
+    "kind": "modified",
+    "sha256": "e52e91ed69bd3f818602e66cb92d6dfcab3c2272378581a6089c553a14797baa"
+  },
+  {
+    "path": "src/main/resources/templates/repairs-admin.html",
+    "kind": "modified",
+    "sha256": "4fa4f946fdf75cfa2d8b361bcb34aec5d3153f225ce2dd1e70fd9ab2f6e8dc6e"
+  },
+  {
+    "path": "src/main/resources/templates/stock-admin.html",
+    "kind": "modified",
+    "sha256": "4a40e0db90d38eca26c3cb7919caa738bbfcedd3d3067bbd6c8821ff6887a89c"
+  },
+  {
+    "path": "src/main/resources/templates/stock-detail.html",
+    "kind": "modified",
+    "sha256": "b6c689cf16eb7f4af59e034502de687fa7ba0cb719aea872d611ba8b5e330910"
+  },
+  {
+    "path": "src/main/resources/templates/storefront/bulk-detail.html",
+    "kind": "modified",
+    "sha256": "fe82f44cb660b8e67d7a6646d3f19f2772bb365ff765ecc04cf8db9f178b4c16"
+  },
+  {
+    "path": "src/main/resources/templates/storefront/device-detail.html",
+    "kind": "modified",
+    "sha256": "1e12abfb1172bbf6d073869a2b35c5017c94d1c69f2be17e783fef73860781a8"
+  },
+  {
+    "path": "src/main/resources/templates/storefront/list.html",
+    "kind": "modified",
+    "sha256": "7e679a2a6552ae52372bfe31729f5176fe47cd6097a1133606c62bf2eedf0b6c"
+  },
+  {
+    "path": "src/main/resources/templates/storefront/manage.html",
+    "kind": "modified",
+    "sha256": "8d36abec50581c96a56de9ef2179f395184ffa74a184ce02dde4e5125b9e6da0"
+  },
+  {
+    "path": "src/main/resources/templates/storefront/product-images.html",
+    "kind": "modified",
+    "sha256": "4cf3796ceda23a0a54c8efc9f11973049bd6591711118b945820c3a10d3f384c"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/admin-claim.html",
+    "kind": "modified",
+    "sha256": "496790f581d3f36544c55132c13f2b01fbb1ccfd68fbe0cd5e10e8b2243589e3"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/admin.html",
+    "kind": "modified",
+    "sha256": "c9b3168037c5e0badcb3371072a7e8d866158c82c4c31f0ab02f0d4854279c9f"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/claimed.html",
+    "kind": "modified",
+    "sha256": "75e1667ab67bbfcd58f9fb7bc86e638c6670c9629d88bd8218ed29d808d43736"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/lookup.html",
+    "kind": "modified",
+    "sha256": "cdfa74598ba2d6c2dd604bbae124768b55ebc45e904d0356d4a38d42d0e39244"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/mine.html",
+    "kind": "modified",
+    "sha256": "46e8a949c503672be9974a0e865695c6a73d2eb620ba0149b8c3c8693f6beb47"
+  },
+  {
+    "path": "src/main/resources/templates/warranty/result.html",
+    "kind": "modified",
+    "sha256": "8460666448b48f69ad02f1b9d559520b9c4516c79ce249bb2730e27062dbfdf0"
+  },
+  {
+    "path": "src/main/resources/templates/week15/admin-detail.html",
+    "kind": "modified",
+    "sha256": "16fd376c81afc5813317284cf50aa1b01501dc003f08dbc64f43c55929d647ed"
+  },
+  {
+    "path": "src/main/resources/templates/week15/admin-orders.html",
+    "kind": "modified",
+    "sha256": "35d659243905ec03adcab9b481c1aa18ceaa6443a242908b862b1f7aa330c31a"
+  },
+  {
+    "path": "src/main/resources/templates/week15/cart.html",
+    "kind": "modified",
+    "sha256": "221913338413c7231a4f532add8da232808223a5e915649f5d82d803625896eb"
+  },
+  {
+    "path": "src/main/resources/templates/week15/checkout.html",
+    "kind": "modified",
+    "sha256": "bcf330cf4eebb052222aeb4e9e0b3463eda20afdd8c3fc6c4bee91e6c6b2b9f4"
+  },
+  {
+    "path": "src/main/resources/templates/week15/my-orders.html",
+    "kind": "modified",
+    "sha256": "1b1244d387eb3cfe59d9d77820de1250d7cb36d57612f3ce7e037f7f97d10a35"
+  },
+  {
+    "path": "src/main/resources/templates/week15/receipt.html",
+    "kind": "modified",
+    "sha256": "9b954e6985d1a1af199c52fe205d12ebfd9a13a70bf7d55e13ea6c1a8346cccc"
+  },
+  {
+    "path": "src/main/resources/templates/week15/sale-error.html",
+    "kind": "modified",
+    "sha256": "d7b97ff79f2936cb0901200feffbd892b7c1088144d2f67cc805abf4f9ad4602"
+  },
+  {
+    "path": "src/main/resources/templates/week17/reports.html",
+    "kind": "modified",
+    "sha256": "a92c7c3209c9a5ff0f438952772296005cbbee4cdb2787fc2bf0e6d0dac0c4e7"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week14/RepairRouteSecurityTest.java",
+    "kind": "modified",
+    "sha256": "d31497879589d8c228503590f24aa8c10d6befadf92957a66ecc32bfc4c91a31"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week15/SaleRoutesTest.java",
+    "kind": "modified",
+    "sha256": "74a41f95c942b83ee5d3939f8ee15b6a9ca543b435348bfe439395c4fea025b3"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week16/WarrantyRoutesTest.java",
+    "kind": "modified",
+    "sha256": "3fedc663483eef88589728606e650a4959ebc41a9f257ddd5cf116890643d63e"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week18/DeploymentBrandTest.java",
+    "kind": "modified",
+    "sha256": "7a7e241f4f6e5b721240ae42ed0e6c0cd6e3762ec59c63617844a284dd2ee985"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week19/Week19SecurityAcceptanceTest.java",
+    "kind": "modified",
+    "sha256": "e9d4566509958ec9fa37bc228bb76f8f7900681206a70f64a7c0596a496f5304"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week24/Week24CatalogTest.java",
+    "kind": "added",
+    "sha256": "3ae97fdb651840ba2b7f2aa4c3f3c22438f58eb3c9bb37a0b6110649ade572a4"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week24/Week24ImageTest.java",
+    "kind": "added",
+    "sha256": "a2fd37cfc07ea43984212f2a9906a6b66b60f37692471f7cb537e415cf3b146f"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week24/Week24PolicyTest.java",
+    "kind": "added",
+    "sha256": "3ddaac019d734d38fa4cc34fbb999dada27ae92b735101c8c2ac2d26718f2fb8"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week24/Week24SitemapRepositoryTest.java",
+    "kind": "added",
+    "sha256": "bab7d7551223a9f74b0053a8466d8b4b3de414dec2abfa875d3bfe4a3e6977af"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week24/Week24WebTest.java",
+    "kind": "added",
+    "sha256": "bcca3415c245a5d6f6717105b40380b2b415982aee753b86ce9e74cd7a8c579f"
+  },
+  {
+    "path": "src/test/java/com/tivarek/week8/RouteAuthorizationTest.java",
+    "kind": "modified",
+    "sha256": "586f3600a173bdf95b0063015eb87d1647a2c5faf7ecc6dd282545f42500786c"
+  },
+  {
+    "path": "README.md",
+    "kind": "modified",
+    "sha256": "60cd50d459c98c4db79af480e6780c3a47522db857a9434b2e7b0f45d484e1ff"
+  }
+]

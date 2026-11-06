@@ -1,0 +1,5 @@
+{
+  "fingerprint_round_trip": true,
+  "revalidation_status": 304,
+  "cache": "max-age=3600, must-revalidate"
+}

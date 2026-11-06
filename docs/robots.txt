@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Run scripts/build-pages-seo.py with the actual GitHub Pages URL to add Sitemap.

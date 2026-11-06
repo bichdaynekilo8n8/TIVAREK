@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Báo cáo &amp; Dashboard — TIVAREK</title>
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week17.css}">
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header class="r-header">
+  <a class="r-brand" th:href="@{/admin}"><span class="r-mark">T</span><span>TIVAREK <small>OPERATIONS</small></span></a>
+  <div class="r-header-links"><a th:href="@{/admin}">Quản trị</a><a th:href="@{/}">Cửa hàng</a></div>
+</header>
+<main id="main-content" tabindex="-1" class="r-shell">
+  <div class="r-eyebrow">BÁO CÁO ĐIỀU HÀNH · TUẦN 17</div>
+  <div class="r-heading"><div><h1 th:switch="${section}"><span th:case="'overview'">Dashboard tổng quan</span><span th:case="'sales'">Hiệu quả bán hàng</span><span th:case="'finance'">Dòng tiền &amp; chi phí</span><span th:case="'repairs'">Tiến độ sửa chữa</span><span th:case="'stock'">Sức khỏe tồn kho</span><span th:case="'warranties'">Theo dõi bảo hành</span></h1>
+      <p>Thống kê trực tiếp từ SQL Server. Ngày giờ hiển thị theo giờ Việt Nam (UTC+7).</p></div>
+      <span class="r-live"><span></span> Dữ liệu thực</span>
+  </div>
+  <nav class="r-tabs" aria-label="Nhóm báo cáo">
+    <a th:if="${canOverview}" th:classappend="${section == 'overview' ? 'active' : ''}" th:href="@{/admin/reports(from=${range.from},to=${range.to})}">Tổng quan</a>
+    <a th:if="${canSales}" th:classappend="${section == 'sales' ? 'active' : ''}" th:href="@{/admin/reports/sales(from=${range.from},to=${range.to})}">Bán hàng</a>
+    <a th:if="${canFinance}" th:classappend="${section == 'finance' ? 'active' : ''}" th:href="@{/admin/reports/finance(from=${range.from},to=${range.to})}">Tài chính</a>
+    <a th:if="${canRepairs}" th:classappend="${section == 'repairs' ? 'active' : ''}" th:href="@{/admin/reports/repairs(from=${range.from},to=${range.to})}">Sửa chữa</a>
+    <a th:if="${canStock}" th:classappend="${section == 'stock' ? 'active' : ''}" th:href="@{/admin/reports/stock(from=${range.from},to=${range.to})}">Kho</a>
+    <a th:if="${canWarranties}" th:classappend="${section == 'warranties' ? 'active' : ''}" th:href="@{/admin/reports/warranties(from=${range.from},to=${range.to})}">Bảo hành</a>
+  </nav>
+  <div class="r-toolbar">
+    <form method="get" class="r-filter" th:action="${section == 'overview'} ? @{/admin/reports} : @{/admin/reports/{section}(section=${section})}">
+      <label>Từ ngày <input name="from" type="date" th:value="${range.from}" required></label>
+      <label>Đến ngày <input name="to" type="date" th:value="${range.to}" required></label>
+      <button type="submit">Áp dụng bộ lọc</button>
+    </form>
+    <a class="r-export" th:if="${section != 'overview'}" th:href="@{/admin/reports/export/{section}(section=${section},from=${range.from},to=${range.to})}">↓ Tải CSV</a>
+  </div>
+  <p class="r-note">Khoảng ngày tính theo <strong>giờ Việt Nam</strong>, gồm cả ngày kết thúc. Các bảng “hiện tại” luôn lấy trạng thái mới nhất, không phụ thuộc bộ lọc ngày.</p>
+
+  <div th:if="${section == 'overview'}">
+    <section class="r-kpis" aria-label="Chỉ số tổng hợp">
+      <div class="r-kpi major"><span>Dòng tiền ròng sau chi phí</span><strong th:text="${#numbers.formatDecimal(overview.cash.netCash(),1,'POINT',0,'COMMA')} + ' đ'"></strong><small>Thu bán + thu sửa − hoàn tiền − chi phí; không phải lợi nhuận.</small></div>
+      <div class="r-kpi"><span>Tiền thu bán hàng</span><strong th:text="${#numbers.formatDecimal(overview.cash.salesIn,1,'POINT',0,'COMMA')} + ' đ'"></strong><small>Giao dịch đã xác nhận</small></div>
+      <div class="r-kpi"><span>Tiền thu sửa chữa</span><strong th:text="${#numbers.formatDecimal(overview.cash.repairsIn,1,'POINT',0,'COMMA')} + ' đ'"></strong><small>Giao dịch đã xác nhận</small></div>
+      <div class="r-kpi"><span>Đơn hoàn tất</span><strong th:text="${overview.ordersCompleted}"></strong><small>Giá trị hàng <span th:text="${#numbers.formatDecimal(overview.completedOrderValue,1,'POINT',0,'COMMA')} + ' đ'"></span></small></div>
+      <div class="r-kpi"><span>Phiếu sửa còn mở</span><strong th:text="${overview.repairsOpen}"></strong><small><span th:text="${overview.repairsReceived}"></span> phiếu tiếp nhận trong kỳ</small></div>
+      <div class="r-kpi urgent"><span>SKU tồn thấp</span><strong th:text="${overview.lowStockProducts}"></strong><small>Khả dụng ≤ 5 sản phẩm · hiện tại</small></div>
+      <div class="r-kpi"><span>Yêu cầu BH chưa chốt</span><strong th:text="${overview.claimsOpen}"></strong><small>Trạng thái mở / kiểm tra / duyệt</small></div>
+      <div class="r-kpi"><span>Máy riêng lẻ còn bán</span><strong th:text="${overview.devicesAvailable}"></strong><small>Tại vị trí kho bán được</small></div>
+    </section>
+    <p class="r-note">Đã tạo <strong th:text="${overview.ordersCreated}"></strong> đơn trong kỳ; bàn giao <strong th:text="${overview.repairsDelivered}"></strong> phiếu sửa. Số đơn hoàn tất lịch sử trước Tuần 17 chưa xác định được ngày hoàn tất nên không quy về kỳ.</p>
+  </div>
+
+  <div th:if="${section == 'finance'}">
+    <section class="r-kpis">
+      <div class="r-kpi major"><span>Dòng tiền ròng (không phải lợi nhuận)</span><strong th:text="${#numbers.formatDecimal(cash.netCash(),1,'POINT',0,'COMMA')} + ' đ'"></strong></div>
+      <div class="r-kpi"><span>Thu bán</span><strong th:text="${#numbers.formatDecimal(cash.salesIn,1,'POINT',0,'COMMA')} + ' đ'"></strong></div>
+      <div class="r-kpi"><span>Thu sửa</span><strong th:text="${#numbers.formatDecimal(cash.repairsIn,1,'POINT',0,'COMMA')} + ' đ'"></strong></div>
+      <div class="r-kpi"><span>Hoàn tiền</span><strong th:text="${#numbers.formatDecimal(cash.refunds,1,'POINT',0,'COMMA')} + ' đ'"></strong></div>
+      <div class="r-kpi"><span>Chi phí hoạt động</span><strong th:text="${#numbers.formatDecimal(cash.expenses,1,'POINT',0,'COMMA')} + ' đ'"></strong></div>
+    </section>
+    <p class="r-note">Chỉ cộng thanh toán <code>SUCCEEDED</code> và chi phí đã ghi vào <code>Expenses</code>. Chưa trừ giá vốn từng sản phẩm nên không gọi là lợi nhuận.</p>
+  </div>
+
+  <section class="r-panel" th:if="${section == 'overview' or section == 'finance'}">
+    <div class="r-panel-head"><div><h2>Dòng tiền theo ngày</h2><p>Ngày phát sinh giao dịch, không phải ngày đặt hàng.</p></div><span class="r-chip">VND</span></div>
+    <div class="r-table"><table><thead><tr><th>Ngày VN</th><th>Thu bán</th><th>Thu sửa</th><th>Hoàn tiền</th><th>Chi phí</th><th>Ròng</th></tr></thead><tbody>
+      <tr th:each="d : ${daily}"><td th:text="${d.DayLocal}"></td><td class="num" th:text="${#numbers.formatDecimal(d.SalesIn,1,'POINT',0,'COMMA')}"></td><td class="num" th:text="${#numbers.formatDecimal(d.RepairsIn,1,'POINT',0,'COMMA')}"></td><td class="num" th:text="${#numbers.formatDecimal(d.Refunds,1,'POINT',0,'COMMA')}"></td><td class="num" th:text="${#numbers.formatDecimal(d.Expenses,1,'POINT',0,'COMMA')}"></td><td class="num emphasized" th:text="${#numbers.formatDecimal(d.NetCash,1,'POINT',0,'COMMA')}"></td></tr>
+      <tr th:if="${#lists.isEmpty(daily)}"><td colspan="6" class="r-empty">Chưa có thu/chi trong khoảng ngày được chọn.</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <div th:if="${section == 'sales'}" class="r-sales-intro">
+    <div class="r-kpi major"><span>Giá trị hàng của đơn hoàn tất</span><strong th:text="${#numbers.formatDecimal(completedValue,1,'POINT',0,'COMMA')} + ' đ'"></strong><small>Không bao gồm phí giao; chưa trừ hàng trả và không đồng nghĩa tiền thu.</small></div>
+    <p class="r-note">Phân tích đơn hoàn tất theo thời điểm <code>CompletedAt</code>. Những đơn đã hoàn tất trước khi cập nhật Tuần 17 không có mốc thời gian đáng tin cậy nên bị loại khỏi chỉ số theo kỳ.</p>
+  </div>
+
+  <section class="r-panel" th:if="${section == 'sales'}">
+    <div class="r-panel-head"><div><h2>Đơn theo trạng thái &amp; kênh</h2><p>Thống kê theo ngày tạo đơn (<code>OrderedAt</code>).</p></div></div>
+    <div class="r-table"><table><thead><tr><th>Trạng thái</th><th>Kênh</th><th>Số đơn</th></tr></thead><tbody><tr th:each="s : ${orders}"><td th:text="${s.Status}"></td><td th:text="${s.Channel}"></td><td th:text="${s.OrderCount}"></td></tr><tr th:if="${#lists.isEmpty(orders)}"><td colspan="3" class="r-empty">Không có đơn hàng trong kỳ.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-panel" th:if="${section == 'overview' or section == 'sales'}">
+    <div class="r-panel-head"><div><h2>Top 20 mặt hàng bán</h2><p>Đơn hoàn tất trong kỳ · số lượng và giá trị bán trước hoàn trả.</p></div><span class="r-chip">TOP 20</span></div>
+    <div class="r-table"><table><thead><tr><th>SKU / mã máy</th><th>Mặt hàng</th><th>Số lượng</th><th>Giá trị (đ)</th></tr></thead><tbody>
+      <tr th:each="p : ${topProducts}"><td class="mono" th:text="${p.SKU}"></td><td th:text="${p.ProductName}"></td><td th:text="${p.Quantity}"></td><td class="num" th:text="${#numbers.formatDecimal(p.GrossValue,1,'POINT',0,'COMMA')}"></td></tr>
+      <tr th:if="${#lists.isEmpty(topProducts)}"><td colspan="4" class="r-empty">Chưa có mặt hàng hoàn tất trong kỳ.</td></tr>
+    </tbody></table></div>
+  </section>
+
+  <section class="r-panel" th:if="${section == 'sales'}">
+    <div class="r-panel-head"><div><h2>Hàng nhận trả</h2><p>30 chứng từ trả hàng đã ghi sổ mới nhất trong kỳ.</p></div></div>
+    <div class="r-table"><table><thead><tr><th>Đơn</th><th>Thời gian VN</th><th>Số lượng</th><th>Lý do</th></tr></thead><tbody><tr th:each="r : ${returns}"><td class="mono" th:text="${r.OrderCode}"></td><td th:text="${r.ReturnLocal}"></td><td th:text="${r.ReturnedQuantity}"></td><td th:text="${r.ReturnReason}"></td></tr><tr th:if="${#lists.isEmpty(returns)}"><td colspan="4" class="r-empty">Chưa có chứng từ trả hàng trong kỳ.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-panel" th:if="${section == 'repairs'}">
+    <div class="r-panel-head"><div><h2>Trạng thái phiếu sửa tiếp nhận trong kỳ</h2><p>Mỗi phiếu được đếm một lần.</p></div></div>
+    <div class="r-table"><table><thead><tr><th>Trạng thái</th><th>Số phiếu</th></tr></thead><tbody><tr th:each="s : ${repairStatuses}"><td th:text="${s.Status}"></td><td th:text="${s.TicketCount}"></td></tr><tr th:if="${#lists.isEmpty(repairStatuses)}"><td colspan="2" class="r-empty">Chưa có phiếu sửa trong kỳ.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-panel" th:if="${section == 'overview' or section == 'repairs'}">
+    <div class="r-panel-head"><div><h2>Phiếu sửa cần theo dõi</h2><p>30 phiếu đang mở, ưu tiên trễ hẹn · tình trạng hiện tại.</p></div><a class="r-link" th:href="@{/admin/repairs}">Quản lý phiếu →</a></div>
+    <div class="r-table"><table><thead><tr><th>Mã phiếu</th><th>Trạng thái</th><th>Nhận (VN)</th><th>Số ngày mở</th><th>Tiến độ</th></tr></thead><tbody><tr th:each="r : ${repairQueue}"><td class="mono" th:text="${r.TicketCode}"></td><td th:text="${r.Status}"></td><td th:text="${r.ReceivedLocal}"></td><td th:text="${r.DaysOpen}"></td><td><span th:class="${r.Overdue == 1 ? 'r-warning' : 'r-okay'}" th:text="${r.Overdue == 1 ? 'Trễ hẹn' : 'Đang xử lý'}"></span></td></tr><tr th:if="${#lists.isEmpty(repairQueue)}"><td colspan="5" class="r-empty">Không có phiếu sửa tồn đọng.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-kpis" th:if="${section == 'stock'}"><div class="r-kpi urgent"><span>Sản phẩm tồn thấp / hết hàng</span><strong th:text="${lowStockCount}"></strong><small>SKU đang hoạt động, còn khả dụng ≤ 5</small></div><div class="r-kpi"><span>Máy riêng lẻ sẵn bán</span><strong th:text="${deviceCount}"></strong><small>Không phải tài sản khách gửi sửa</small></div></section>
+
+  <section class="r-panel" th:if="${section == 'overview' or section == 'stock'}">
+    <div class="r-panel-head"><div><h2>Cảnh báo tồn kho</h2><p>150 SKU thấp nhất · từ chứng từ POSTED và số lượng giữ hàng còn hạn.</p></div><a class="r-link" th:href="@{/admin/stock}">Mở sổ kho →</a></div>
+    <div class="r-table"><table><thead><tr><th>Mã SKU</th><th>Sản phẩm</th><th>Tồn</th><th>Đã giữ</th><th>Có thể bán</th></tr></thead><tbody><tr th:each="s : ${lowStock}"><td class="mono" th:text="${s.SKU}"></td><td th:text="${s.ProductName}"></td><td th:text="${s.OnHand}"></td><td th:text="${s.Reserved}"></td><td class="emphasized" th:text="${s.Available}"></td></tr><tr th:if="${#lists.isEmpty(lowStock)}"><td colspan="5" class="r-empty">Không có SKU thuộc ngưỡng cảnh báo.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-panel" th:if="${section == 'stock'}">
+    <div class="r-panel-head"><div><h2>Tồn hàng số lượng theo vị trí</h2><p>Đếm theo sổ kho đã POSTED; tồn ở khu cách ly không được cộng vào khả dụng bán.</p></div></div>
+    <div class="r-table"><table><thead><tr><th>Mã vị trí</th><th>Tên</th><th>Loại vị trí</th><th>Số lượng</th></tr></thead><tbody><tr th:each="s : ${stockLocations}"><td class="mono" th:text="${s.LocationCode}"></td><td th:text="${s.LocationName}"></td><td th:text="${s.LocationType}"></td><td th:text="${s.OnHand}"></td></tr><tr th:if="${#lists.isEmpty(stockLocations)}"><td colspan="4" class="r-empty">Chưa có kho.</td></tr></tbody></table></div>
+  </section>
+
+  <section class="r-kpis" th:if="${section == 'warranties'}"><div class="r-kpi"><span>Phiếu bảo hành còn hiệu lực</span><strong th:text="${activeWarranties}"></strong><small>Trạng thái ACTIVE và chưa quá ngày</small></div></section>
+  <section class="r-panel" th:if="${section == 'warranties'}">
+    <div class="r-panel-head"><div><h2>Yêu cầu bảo hành trong kỳ</h2><p>Thống kê theo ngày khách gửi yêu cầu.</p></div></div>
+    <div class="r-table"><table><thead><tr><th>Trạng thái</th><th>Số yêu cầu</th></tr></thead><tbody><tr th:each="c : ${claimStatuses}"><td th:text="${c.Status}"></td><td th:text="${c.ClaimCount}"></td></tr><tr th:if="${#lists.isEmpty(claimStatuses)}"><td colspan="2" class="r-empty">Chưa có yêu cầu trong kỳ.</td></tr></tbody></table></div>
+  </section>
+  <section class="r-panel" th:if="${section == 'overview' or section == 'warranties'}">
+    <div class="r-panel-head"><div><h2>Bảo hành sắp hết hạn</h2><p>30 phiếu sớm nhất trong 30 ngày tới · trạng thái hiện tại.</p></div><a class="r-link" th:href="@{/admin/warranties}">Quản lý bảo hành →</a></div>
+    <div class="r-table"><table><thead><tr><th>Mã phiếu</th><th>Hết hạn (VN)</th><th>Số ngày còn</th></tr></thead><tbody><tr th:each="w : ${expiring}"><td class="mono" th:text="${w.WarrantyCode}"></td><td th:text="${w.EndLocal}"></td><td th:text="${w.DaysRemaining}"></td></tr><tr th:if="${#lists.isEmpty(expiring)}"><td colspan="3" class="r-empty">Không có phiếu sắp hết hạn.</td></tr></tbody></table></div>
+  </section>
+  <footer class="r-footer">TIVAREK · Hệ thống vận hành cửa hàng điện tử &amp; sửa chữa · Số liệu tài chính chỉ hiển thị theo phân quyền.</footer>
+</main>
+</body></html>

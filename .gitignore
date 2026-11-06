@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Ảnh thật lưu ngoài Git; sao lưu thư mục này cùng database.
+/var/
+
+# Tuần 18 - không lưu bí mật, dữ liệu và bản sao lưu vào Git.
+.env
+.env.*
+!.env.example
+*.bak
+*.backup
+*.log
+/backups/
+/uploads/
+/logs/
+
+# Week 24 optional browser audit dependencies and local measurement output
+node_modules/
+scripts/week24-tools/results/

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "src/main/resources/static/images/tivarek-wordmark.png",
+    "before": 611529,
+    "after": 59184
+  },
+  {
+    "file": "src/main/resources/static/images/tivarek-icon.png",
+    "before": 553542,
+    "after": 4857
+  },
+  {
+    "file": "src/main/resources/static/images/tivarek-brand-card.png",
+    "before": 3285726,
+    "after": 1140143
+  },
+  {
+    "file": "docs/assets/tivarek-wordmark.png",
+    "before": 611529,
+    "after": 59184
+  },
+  {
+    "file": "docs/assets/tivarek-icon.png",
+    "before": 553542,
+    "after": 4857
+  },
+  {
+    "file": "docs/assets/tivarek-brand-card.png",
+    "before": 3285726,
+    "after": 1140143
+  }
+]

@@ -1,0 +1,12 @@
+<!doctype html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Đơn hàng — TIVAREK</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/week15.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+</head><body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+<header th:replace="~{week15/fragments/nav :: nav}"></header><main id="main-content" tabindex="-1" class="wrap"><h1>Chi tiết đơn hàng</h1><p class="lead">Lưu lại đường dẫn riêng này để tra cứu. Đường dẫn chứa mã bảo mật, không chia sẻ công khai.</p>
+<section class="box"><div class="actions"><h2 th:text="${detail.header.OrderCode}"></h2><span class="status" th:text="${detail.header.Status}"></span></div>
+<p th:text="'Người nhận: ' + ${detail.header.RecipientName} + ' · ' + ${detail.header.RecipientPhone}"></p>
+<p th:text="${detail.header.FulfillmentMethod == 'PICKUP' ? 'Nhận tại cửa hàng' : 'Giao hàng: ' + detail.header.AddressSnapshot}"></p>
+<div class="table-scroll"><table><thead><tr><th>Mặt hàng</th><th>SL</th><th>Đã giao</th><th>Đã trả</th><th>Đơn giá</th></tr></thead><tbody><tr th:each="l:${detail.lines}"><td th:text="${l.DescriptionSnapshot}"></td><td th:text="${l.Quantity}"></td><td th:text="${l.Shipped}"></td><td th:text="${l.Returned}"></td><td class="money" th:text="${#numbers.formatDecimal(l.UnitPrice,1,'POINT',0,'COMMA')}+' đ'"></td></tr></tbody></table></div>
+<p class="summary">Tổng đơn: <strong th:text="${#numbers.formatDecimal(detail.total,1,'POINT',0,'COMMA')}+' đ'"></strong></p><p>Đã thu trừ hoàn: <strong th:text="${#numbers.formatDecimal(detail.collected,1,'POINT',0,'COMMA')}+' đ'"></strong></p>
+<p class="help">DRAFT: chờ xác nhận · CONFIRMED: đã giữ hàng · FULFILLING: đang giao/thu tiền · COMPLETED: đã giao và thu đủ · CANCELLED: đã hủy.</p>
+<a class="button secondary" th:href="@{/san-pham}">Quay lại cửa hàng</a></section>
+</main></body></html>

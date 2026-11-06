@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title th:text="${detail.product.name} + ' — Máy riêng lẻ | TIVAREK'">Thiết bị cũ TIVAREK</title><link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}"><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/storefront.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+<meta name="description" th:content="${detail.product.name} + ' tại TIVAREK Quảng Ngãi. Xem giá, tình trạng và thông số trước khi đặt mua.'">
+<meta name="robots" th:content="${seoIndexable ? 'index,follow' : 'noindex,follow'}">
+<link rel="canonical" th:if="${seoCanonical != null}" th:href="${seoCanonical}">
+<meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="TIVAREK">
+<meta property="og:type" content="website"><meta property="og:url" th:if="${seoCanonical != null}" th:content="${seoCanonical}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a><header th:replace="~{storefront/fragments/header :: header}"></header>
+<main id="main-content" tabindex="-1" class="sf-container sf-detail-page">
+  <nav class="sf-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/}">Trang chủ</a><span>/</span><a th:href="@{/san-pham}">Sản phẩm</a><span>/</span><span th:text="${detail.product.name}"></span></nav>
+  <div class="sf-detail-layout">
+    <section class="sf-detail-gallery" aria-label="Ảnh thiết bị thật">
+      <div class="sf-detail-cover"><img th:if="${detail.product.imageUrl != null}" th:src="${detail.product.imageUrl}" th:alt="${detail.product.name}" width="800" height="600" decoding="async" loading="eager" fetchpriority="high"><div th:unless="${detail.product.imageUrl != null}" class="media-placeholder"><span aria-hidden="true">▣</span>Chưa có ảnh chụp máy</div></div>
+      <div class="sf-gallery-thumbs" th:if="${!#lists.isEmpty(detail.photos)}"><img th:each="photo:${detail.photos}" th:src="${photo.url}" th:alt="${photo.alt}" loading="lazy" width="800" height="600" decoding="async"></div>
+    </section>
+    <section class="sf-detail-copy"><span class="sf-eyebrow accent">THIẾT BỊ ĐÃ QUA SỬ DỤNG · RIÊNG TỪNG CHIẾC</span><h1 th:text="${detail.product.name}"></h1>
+      <p class="sf-detail-subtitle"><span th:text="${detail.product.category}"></span><span th:if="${detail.product.brand != null}" th:text="' · ' + ${detail.product.brand}"></span></p>
+      <div class="sf-detail-price" th:text="${#numbers.formatDecimal(detail.product.price,1,'POINT',0,'COMMA')} + ' đ'"></div>
+      <p class="sf-stock-detail" th:classappend="${detail.product.inStock ? ' in-stock' : ' out-stock'}" th:text="${detail.product.inStock ? 'Máy này đang có sẵn để bán' : 'Máy đang hết hàng hoặc đã được giữ'}"></p>
+      <dl class="sf-facts"><div><dt>Mã máy</dt><dd th:text="${detail.product.code}"></dd></div><div><dt>Tình trạng</dt><dd th:text="${detail.product.gradeLabel}"></dd></div><div><dt>Kiểm tra</dt><dd th:text="${detail.inspectionStatus == 'PASS' ? 'Đạt kiểm tra' : (detail.inspectionStatus == 'FAIL' ? 'Chưa đạt' : (detail.inspectionStatus == 'NEEDS_REPAIR' ? 'Cần sửa chữa' : 'Chưa có kết quả'))}"></dd></div></dl>
+      <div class="sf-purchase-info"><strong>Đúng chiếc máy, đúng thông tin</strong><p>Mỗi thiết bị chỉ bán một lần; sau khi xác nhận đơn sẽ được giữ riêng trong kho.</p>
+        <form th:if="${detail.product.inStock}" method="post" th:action="@{/gio-hang/add}">
+          <input type="hidden" name="kind" value="DEVICE"><input type="hidden" name="id" th:value="${detail.product.id}">
+          <input type="hidden" name="quantity" value="1"><button class="sf-button" type="submit">Đặt mua máy này</button>
+        </form><p th:unless="${detail.product.inStock}">Máy đang hết hàng hoặc đã được giữ.</p>
+        <a class="sf-button" th:href="@{/gio-hang}">Xem giỏ hàng</a></div>
+    </section>
+  </div>
+  <section class="sf-spec-panel"><div><span class="sf-eyebrow accent">TÌNH TRẠNG MÁY</span><h2>Mô tả thực tế</h2></div><p class="sf-description" th:text="${detail.description}"></p></section>
+  <section class="sf-spec-panel"><div><span class="sf-eyebrow accent">CẤU HÌNH</span><h2>Thông số từng máy</h2></div><p th:if="${#lists.isEmpty(detail.specifications)}">Đang cập nhật thông số.</p>
+    <dl th:unless="${#lists.isEmpty(detail.specifications)}" class="sf-spec-table"><div th:each="spec:${detail.specifications}"><dt th:text="${spec.name}"></dt><dd th:text="${spec.value} + (${spec.unit == null} ? '' : ' ' + ${spec.unit})"></dd></div></dl>
+  </section>
+</main><footer th:replace="~{storefront/fragments/footer :: footer}"></footer></body></html>

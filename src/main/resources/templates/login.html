@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TIVAREK — Đăng nhập</title><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/app.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a><main id="main-content" tabindex="-1" class="login-layout">
+  <section class="login-story"><a class="brand" th:href="@{/}">TIVAREK<span>ĐIỆN TỬ &amp; SỬA CHỮA</span></a><div><span class="eyebrow">CHẤT LƯỢNG TỐT · DỊCH VỤ TẬN TÂM</span><h1>Kết nối công nghệ.<br>Giữ trọn niềm tin.</h1><p>Đăng nhập để quản lý công việc cửa hàng hoặc xem thông tin khách hàng của bạn.</p></div><small>TIVAREK · Quảng Ngãi</small></section>
+  <section class="login-panel"><div class="login-card"><span class="eyebrow">CHÀO MỪNG TRỞ LẠI</span><h2>Đăng nhập</h2><p class="muted">Sử dụng tài khoản đã được cấp cho bạn.</p>
+    <div class="notice error" role="alert" th:if="${param.error}">Tên đăng nhập hoặc mật khẩu không đúng, hoặc tài khoản chưa được kích hoạt.</div>
+    <div class="notice success" role="status" th:if="${param.logout}">Bạn đã đăng xuất thành công.</div>
+    <div class="notice success" role="status" th:if="${param.passwordChanged}">Đã đổi mật khẩu. Vui lòng đăng nhập lại.</div>
+    <form th:action="@{/login}" method="post" class="stack"><label for="username">Tên đăng nhập</label><input id="username" name="username" autocomplete="username" maxlength="100" required autofocus><label for="password">Mật khẩu</label><input id="password" name="password" type="password" autocomplete="current-password" required><button class="button" type="submit">Đăng nhập</button></form>
+    <p class="muted" style="margin-top:18px">Chưa có tài khoản? <a th:href="@{/register}">Đăng ký ngay</a></p>
+    <div class="notice success" role="status" th:if="${param.registered}">Đăng ký thành công! Hãy đăng nhập bằng tài khoản mới.</div>
+    <a class="back-link" th:href="@{/}">← Quay lại cửa hàng</a>
+  </div></section>
+</main></body></html>

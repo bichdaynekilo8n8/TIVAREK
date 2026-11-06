@@ -1,0 +1,3 @@
+<!doctype html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><body>
+<nav th:fragment="nav" class="tabs" aria-label="Quản lý cửa hàng"><a th:href="@{/admin/devices}">Thiết bị</a><a th:if="${canProducts}" th:href="@{/admin/products}">Sản phẩm</a><a th:if="${canWriteDevices}" th:href="@{/admin/storefront}">Đăng lên website</a><a th:if="${canCatalog}" th:href="@{/admin/catalog/categories}">Danh mục · Thương hiệu · Đơn vị</a><a th:href="@{/admin}">Tổng quan</a></nav>
+</body></html>

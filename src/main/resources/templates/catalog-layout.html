@@ -1,0 +1,5 @@
+<!doctype html><html lang="vi" xmlns:th="http://www.thymeleaf.org"><body>
+<header th:fragment="header" class="topbar"><a class="brand" th:href="@{/}">TIVAREK<span>ĐIỆN TỬ &amp; SỬA CHỮA</span></a><div class="top-actions"><a th:href="@{/admin}">Tổng quan</a><a th:href="@{/}">Về cửa hàng</a><span class="user" th:text="${username}"></span><form th:action="@{/logout}" method="post"><button class="button secondary">Đăng xuất</button></form></div></header>
+<nav th:fragment="nav" class="tabs" aria-label="Quản lý sản phẩm"><a th:if="${canReadDevices}" th:href="@{/admin/devices}">Thiết bị</a><a th:href="@{/admin/products}">Sản phẩm</a><a th:if="${canWrite}" th:href="@{/admin/storefront}">Đăng lên website</a><a th:if="${canCatalog}" th:href="@{/admin/catalog/categories}">Danh mục</a><a th:if="${canCatalog}" th:href="@{/admin/catalog/brands}">Thương hiệu</a><a th:if="${canCatalog}" th:href="@{/admin/catalog/units}">Đơn vị tính</a></nav>
+<div th:fragment="notices"><div th:if="${success}" class="notice success" role="status" th:text="${success}"></div><div th:if="${failure}" class="notice error" role="alert" th:text="${failure}"></div></div>
+</body></html>

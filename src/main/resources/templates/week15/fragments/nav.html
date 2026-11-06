@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="nav" class="w23-order-header">
+  <div class="nav">
+    <a class="brand" th:href="@{/}">TIVAREK<span class="w23-order-brand-desc">ELECTRONICS &amp; REPAIR</span></a>
+    <nav aria-label="Điều hướng bán hàng">
+      <a th:href="@{/}">Trang chủ</a>
+      <a th:href="@{/san-pham}">Sản phẩm</a>
+      <a th:href="@{/gio-hang}">Giỏ hàng</a>
+      <a th:href="@{/account/orders}">Đơn của tôi</a>
+      <a th:href="@{/admin/orders}">Quản lý đơn (nhân viên)</a>
+    </nav>
+  </div>
+  <script defer th:src="@{/js/week23-forms.js}"></script>
+</header>
+</body>
+</html>

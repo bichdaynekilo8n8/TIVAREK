@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Gửi yêu cầu sửa chữa TV, laptop và máy tính tại TIVAREK Quảng Ngãi.">
+  <title>Đăng ký sửa chữa | TIVAREK</title>
+  <link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}">
+  <link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/workflow.css}">
+  <script defer th:src="@{/js/week23-forms.js}"></script>
+<link rel="stylesheet" th:href="@{/css/week24.css}">
+<meta name="robots" th:content="${seoIndexable ? 'index,follow' : 'noindex,follow'}">
+<link rel="canonical" th:if="${seoCanonical != null}" th:href="${seoCanonical}">
+<meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="TIVAREK">
+<meta property="og:type" content="website"><meta property="og:url" th:if="${seoCanonical != null}" th:content="${seoCanonical}">
+</head>
+<body class="w23-repair-page"><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a>
+  <header class="wf-header">
+    <a class="wf-logo" th:href="@{/}">TIVAREK<span class="w23-wf-caption"> / REPAIR</span></a>
+    <nav aria-label="Điều hướng dịch vụ">
+      <a th:href="@{/san-pham}">Sản phẩm</a>
+      <a th:href="@{/tra-cuu-sua-chua}">Tra cứu tiến độ</a>
+      <a th:href="@{/tra-cuu-bao-hanh}">Bảo hành</a>
+      <a th:href="@{/login}">Đăng nhập</a>
+    </nav>
+  </header>
+  <main id="main-content" tabindex="-1" class="wf-shell w23-repair-shell">
+    <nav class="w23-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/}">Trang chủ</a><span aria-hidden="true">/</span><span>Đăng ký sửa chữa</span></nav>
+    <div class="w23-repair-heading">
+      <span class="w23-label">TIVAREK SERVICE DESK</span>
+      <h1>Thiết bị gặp sự cố?<br><span>Chúng tôi sẵn sàng lắng nghe.</span></h1>
+      <p>Điền thông tin bên dưới để TIVAREK liên hệ và hướng dẫn bước tiếp theo. Chưa cần mang máy đến nếu chưa được nhân viên xác nhận.</p>
+    </div>
+    <div th:if="${success}" class="wf-alert wf-success" role="status" th:text="${success}"></div>
+    <div th:if="${failure}" class="wf-alert wf-error" role="alert" th:text="${failure}"></div>
+    <div class="w23-repair-grid">
+      <section class="wf-card w23-repair-form-panel" aria-labelledby="repair-form-heading">
+        <span class="w23-form-step">BƯỚC 01 / GỬI YÊU CẦU</span>
+        <h2 id="repair-form-heading">Thông tin thiết bị và liên hệ</h2>
+        <p class="w23-form-intro">Các mục có dấu * là bắt buộc. Bạn nên mô tả rõ dấu hiệu lỗi và model nếu biết.</p>
+        <form class="wf-form w23-form" th:action="@{/sua-chua}" method="post" data-w23-submit-lock>
+          <label for="repair-name">Họ và tên <span aria-hidden="true">*</span></label>
+          <input id="repair-name" name="name" maxlength="180" autocomplete="name" placeholder="Tên người gửi yêu cầu" required>
+          <label for="repair-phone">Số điện thoại <span aria-hidden="true">*</span></label>
+          <input id="repair-phone" name="phone" type="tel" inputmode="tel" pattern="\+?[0-9]{8,15}" maxlength="25" autocomplete="tel" placeholder="VD: 0335135549" required>
+          <label for="repair-problem">Thiết bị và mô tả lỗi <span aria-hidden="true">*</span></label>
+          <textarea id="repair-problem" name="problem" maxlength="2000" rows="6" required placeholder="VD: TV Samsung 43 inch có tiếng nhưng không lên hình. Lỗi xuất hiện từ hôm qua, đã thử đổi ổ cắm."></textarea>
+          <small class="w23-field-help">Gợi ý: loại máy, thương hiệu, model, biểu hiện lỗi và những bước đã thử.</small>
+          <label for="repair-date">Thời gian mong muốn được liên hệ</label>
+          <input id="repair-date" type="datetime-local" name="preferredAt">
+          <button class="w23-wide-submit" type="submit">Gửi yêu cầu sửa chữa <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="wf-note">Việc gửi yêu cầu không phải báo giá hoặc cam kết hoàn tất sửa chữa. Nhân viên sẽ liên hệ để trao đổi tình trạng và thời gian dự kiến.</p>
+      </section>
+      <aside class="w23-repair-aside" aria-label="Quy trình tiếp nhận">
+        <div class="w23-process-card">
+          <span class="w23-label">QUY TRÌNH MINH BẠCH</span>
+          <h2>Chúng tôi xử lý yêu cầu thế nào?</h2>
+          <ol class="w23-process-list">
+            <li><span>01</span><div><strong>Tiếp nhận thông tin</strong><p>Khách gửi tình trạng máy và số điện thoại liên hệ.</p></div></li>
+            <li><span>02</span><div><strong>Liên hệ và kiểm tra</strong><p>Nhân viên xác nhận, hướng dẫn mang máy đến kiểm tra.</p></div></li>
+            <li><span>03</span><div><strong>Báo giá trước khi sửa</strong><p>Báo giá và điều kiện sửa chữa được thông tin rõ ràng.</p></div></li>
+            <li><span>04</span><div><strong>Theo dõi và bàn giao</strong><p>Khách tra cứu phiếu bằng mã bảo mật sau khi tiếp nhận máy.</p></div></li>
+          </ol>
+          <a class="w23-text-link" th:href="@{/tra-cuu-sua-chua}">Đã có mã phiếu? Tra cứu ngay <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="w23-help-card"><strong>Cần trao đổi trực tiếp?</strong><p>Gọi cho TIVAREK để được tư vấn ban đầu.</p><a href="tel:+84335135549">0335 135 549 ↗</a></div>
+      </aside>
+    </div>
+  </main>
+  <footer class="w23-simple-footer">TIVAREK · Tận tâm từng thiết bị. An tâm từng khách hàng. · Quảng Ngãi</footer>
+</body>
+</html>

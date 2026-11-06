@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title th:text="${item.name} + ' | TIVAREK'">Sản phẩm TIVAREK</title><link rel="icon" type="image/png" th:href="@{/images/tivarek-icon.png}"><link rel="stylesheet" th:href="@{/css/week23.css}">
+<link rel="stylesheet" th:href="@{/css/storefront.css}"><link rel="stylesheet" th:href="@{/css/week24.css}">
+<meta name="description" th:content="${item.name} + ' tại TIVAREK Quảng Ngãi. Xem giá, tình trạng và thông số trước khi đặt mua.'">
+<meta name="robots" th:content="${seoIndexable ? 'index,follow' : 'noindex,follow'}">
+<link rel="canonical" th:if="${seoCanonical != null}" th:href="${seoCanonical}">
+<meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="TIVAREK">
+<meta property="og:type" content="website"><meta property="og:url" th:if="${seoCanonical != null}" th:content="${seoCanonical}">
+</head>
+<body><a class="w24-skip" href="#main-content">Bỏ qua điều hướng</a><header th:replace="~{storefront/fragments/header :: header}"></header>
+<main id="main-content" tabindex="-1" class="sf-container sf-detail-page">
+  <nav class="sf-breadcrumb" aria-label="Đường dẫn"><a th:href="@{/}">Trang chủ</a><span>/</span><a th:href="@{/san-pham}">Sản phẩm</a><span>/</span><span th:text="${item.name}"></span></nav>
+  <div class="sf-detail-layout">
+    <section class="sf-detail-gallery" aria-label="Ảnh sản phẩm">
+      <div class="sf-detail-cover"><img th:if="${item.imageUrl != null}" th:src="${item.imageUrl}" th:alt="${item.name}" width="800" height="600" decoding="async" loading="eager" fetchpriority="high"><div th:unless="${item.imageUrl != null}" class="media-placeholder"><span aria-hidden="true">▣</span>Ảnh đang cập nhật</div></div>
+      <div class="sf-gallery-thumbs" th:if="${!#lists.isEmpty(photos)}"><img th:each="photo:${photos}" th:src="${photo.url}" th:alt="${photo.alt}" loading="lazy" width="800" height="600" decoding="async"></div>
+    </section>
+    <section class="sf-detail-copy"><span class="sf-eyebrow accent">HÀNG QUẢN LÝ THEO SỐ LƯỢNG</span><h1 th:text="${item.name}"></h1>
+      <p class="sf-detail-subtitle"><span th:text="${item.category}"></span><span th:if="${item.brand != null}" th:text="' · ' + ${item.brand}"></span></p>
+      <div class="sf-detail-price" th:text="${#numbers.formatDecimal(item.price,1,'POINT',0,'COMMA')} + ' đ'"></div>
+      <p class="sf-stock-detail" th:classappend="${item.inStock ? ' in-stock' : ' out-stock'}" th:text="${item.inStock ? 'Đang có ' + item.available + ' sản phẩm sẵn bán' : 'Tạm hết hàng tại kho bán'}"></p>
+      <dl class="sf-facts"><div><dt>Mã sản phẩm</dt><dd th:text="${item.code}"></dd></div><div><dt>Hình thức</dt><dd>Hàng số lượng / phụ kiện</dd></div><div><dt>Thương hiệu</dt><dd th:text="${item.brand == null ? 'Đang cập nhật' : item.brand}"></dd></div></dl>
+      <div class="sf-purchase-info"><strong>Mua sản phẩm tại TIVAREK</strong><p>Đơn hàng được tạo trên SQL Server; nhân viên xác nhận sẽ giữ hàng trong kho.</p>
+        <form th:if="${item.inStock}" method="post" th:action="@{/gio-hang/add}">
+          <input type="hidden" name="kind" value="BULK"><input type="hidden" name="id" th:value="${item.id}">
+          <label>Số lượng <input type="number" name="quantity" min="1" th:max="${item.available}" value="1" required></label>
+          <button type="submit" class="sf-button">Thêm vào giỏ hàng</button>
+        </form><p th:unless="${item.inStock}">Tạm hết hàng, chưa thể thêm vào giỏ.</p>
+        <a class="sf-button" th:href="@{/gio-hang}">Xem giỏ hàng</a></div>
+    </section>
+  </div>
+  <section class="sf-spec-panel"><div><span class="sf-eyebrow accent">THÔNG TIN THÊM</span><h2>Thông số sản phẩm</h2></div><p th:if="${#lists.isEmpty(specs)}">Đang cập nhật thông số chi tiết.</p>
+    <dl th:unless="${#lists.isEmpty(specs)}" class="sf-spec-table"><div th:each="spec:${specs}"><dt th:text="${spec.name}"></dt><dd th:text="${spec.value} + (${spec.unit == null} ? '' : ' ' + ${spec.unit})"></dd></div></dl>
+  </section>
+</main><footer th:replace="~{storefront/fragments/footer :: footer}"></footer></body></html>
